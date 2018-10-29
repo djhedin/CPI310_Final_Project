@@ -1,0 +1,30 @@
+{
+  "name": "cpi310_final_project",
+  "version": "1.0.0",
+  "description": "CPI 310 final project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djhedin/CPI310_Final_Project.git"
+  },
+  "author": "Devyn J Hedin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djhedin/CPI310_Final_Project/issues"
+  },
+  "homepage": "https://github.com/djhedin/CPI310_Final_Project#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.1",
+    "pg": "^7.6.0",
+    "sequelize": "^4.41.0",
+    "sqlite3": "^4.0.3"
+  }
+}
