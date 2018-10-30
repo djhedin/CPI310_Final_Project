@@ -1,0 +1,174 @@
+/*Universal Styling*/
+html, body {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+    clear: both;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Russo One', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-indent: 2%;
+}
+
+main {
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+}
+
+/*Header Styling*/
+header {
+    background-color: #333;
+    margin:0;
+    padding:0;
+    display: inline;
+    font-family: 'Russo One', sans-serif;
+}
+
+header img {
+    float: left;
+    width: 21%;
+    height: 21%;
+}
+
+/*Navigation Bar Styling*/
+nav {
+  overflow: hidden;
+  background-color: #333;
+  display: block;
+}
+nav ul {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+}
+nav li {
+    display: inline;
+}
+nav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+nav a.active {
+  background-color: #FF5500;
+  color: white;
+}
+
+.column {
+    float: left;
+    width: 23%;
+    margin-bottom: 16px;
+    padding: 6px 6px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+	background-color: #333;
+	color: white;
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+    padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: #FF5500;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #FF5500;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: white;
+	color: black;
+}
+
+/*Article Styling*/
+article {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+article section p {
+    text-indent: 2%;
+}
+/*Footer Styling*/
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+}
+
+#martian_landscape {
+    background-image: linear-gradient(white, #ADD8E6, #FF5500);
+    width:100%;
+    height: 100%;
+    margin-bottom: 0px;
+    min-height: 1000px;
+}
+#martian_landscape img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#martian_landscape a {
+    font-family: 'Roboto', sans-serif;
+}
