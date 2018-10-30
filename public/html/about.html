@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--index.html-->
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet">
+    </head>
+    <style> /* Used for page specific styling*/
+        #contact-info {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    <body>
+        <main>
+            <header>
+                <img src="../media/MEA_logo2.png">
+                    <nav>
+                    <ul>
+                        <a href="index.html"><li>Home</li></a>
+                        <a href="project.html"><li>Project</li></a>
+						<a href="specifications.html"><li>Specifications</li></a>
+						<a href="plan.html"><li>Plan</li></a>
+                        <a href="about.html" class="active"><li>About Us</li></a>
+                    </ul>
+                </nav>
+            </header>
+            <div id="martian_landscape">
+				<center>
+					<img src="../media/surface.jpg" alt="Surface">
+					<div class="container">
+							<div class="row">
+								 <div class="column">
+									<div class="card">
+									  <img src="../media/face_carlos.jpg" alt="Carlos Paz" style="width:50%">
+									  <div class="container">
+										<h2>Carlos Paz</h2>
+										<p class="title">Programmer &amp; Designer</p>
+										<p>Carlos is Junior in Informatics, focusing in web/application development. He hopes to one day work for an innovative company on the forefront of technology.</p>
+										<p>crpaz@asu.edu</p>
+										<p><button class="button">Contact</button></p>
+									  </div>
+									</div>
+								 </div>
+
+								 <div class="column">
+									<div class="card">
+									  <img src="../media/face_devyn.jpg" alt="Mike" style="width:50%">
+									  <div class="container">
+										<h2>Devyn Hedin</h2>
+										<p class="title">Infrastructure Engineer</p>
+										<p>Devyn is a senior in Digital Culture and focuses on the marriage of media technologies with computer engineering. He hopes to one day work as a security engineer.</p>
+										<p>dhedin@asu.edu</p>
+										<p><button class="button">Contact</button></p>
+									  </div>
+									</div>
+								 </div>
+
+								 <div class="column">
+									<div class="card">
+									  <img src="../media/face_kyle.jpg" alt="John" style="width:50%">
+									  <div class="container">
+										<h2>Kyle Houlihan</h2>
+										<p class="title">Lead Design</p>
+										<p>Kyle is an Honors student experienced in media engineering and graphic design. He hopes to use his research and love of Mars to inspire creativity in those who dare to dream with him.</p>
+										<p>kmhoulih@asu.edu</p>
+										<p><button class="button">Contact</button></p>
+									  </div>
+									</div>
+								 </div>
+							
+								<div class="column">
+									<div class="card">
+									  <img src="../media/face_randy.jpg" alt="John" style="width:50%">
+									  <div class="container">
+										<h2>Randy Rodriguez</h2>
+										<p class="title">Designer</p>
+										<p>Randy Rodriguez is an Informatics major at ASU. He switched from Computer Systems Engineering after 2 years. He plans to work in logistics after graduating.</p>
+										<p>email@asu.edu</p>
+										<p><button class="button">Contact</button></p>
+									  </div>
+									</div>
+								</div>
+							</div>
+					</div>
+				</center>
+                 <center><h3>Contact Us</h3></center>
+
+    <center><p>Please feel free to contact us with any questions, comments, or suggestions!</p></center>
+
+    <center>
+        <span id="contact-info">
+        <b>Phone:</b> 626-512-5475
+        <br />
+        <b>Email:</b> mae@gmail.com
+        <br />
+        <p></p> Send us a message!
+        <br />
+        <br />
+        <form method="Post" action="process.php">
+
+            Name: <input type="text" />
+            <p></p>
+            Email: <input type="text" />
+            <p></p>
+            Message:
+            <p></p>
+            <textarea rows="10" cols="40" name="body"></textarea>
+            <p></p>
+            <input type="submit" value="Send" name="submit"/>
+			 <br />
+			 <br />
+        </form>
+        </span>
+        </center>
+        </div>
+        </main>
+    <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
+    </body>
+</html>
