@@ -7,38 +7,46 @@
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet">    </head>
     <style> /* Used for page specific styling*/
-        
+
     </style>
     <body>
         <main>
-            <header>
-                <img src="../media/MEA_logo2.png">
-                    <nav>
-                    <ul>
-                        <a href="index.html" class="active"><li>Home</li></a>
-                        <a href="project.html"><li>Project</li></a>
-						<a href="specifications.html"><li>Specifications</li></a>
-						<a href="plan.html"><li>Plan</li></a>
-                        <a href="about.html"><li>About Us</li></a>
-                    </ul>
-                </nav>
-            </header>
-            <div id="martian_landscape">
-                <center>
-                    <img src="../media/Front_banner_mars.png" alt="Surface">
-                    <h1>Introduction</h1>
-                </center>
-					<p>Welcome to our Mars Survival and Exploration Wiki. We believe in the wisdom of large groups of people, and so, this Wiki is designed to whet your creative juices and contribute your ideas on how human beings can survive and thrive on the Red Planet.</p>		
-                    <p>For the purposes of this proposal the MEA is a private organization founded with the intent of guiding humans through a smooth colonization of Mars. The purpose of the MEA is to disperse knowledge to individuals and groups interested in immigrating to the Red Planet. To serve that purpose the organization provides curated articles and provides users the ability to publish their own, as well as to comment and critique each other. This will foster a collaborative nature in our members, as well as the publishing of helpful information and pruning of bad information.</p>
-					<br />
-            </div>
-            <article>
-                <section id="welcome">
-                </section>
-            </article>
-            <article>
-            </article>
-            <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
+        <header>
+            <img src="../media/MEA_logo2.png">
+            <nav>
+                <ul>
+                    <a href="index.html" class="active nav_element"><li>Home</li></a>
+                    <a href="project.html" class="nav_element"><li>Project</li></a>
+                    <a href="specifications.html" class="nav_element"><li>Specifications</li></a>
+                    <a href="plan.html" class="nav_element"><li>Plan</li></a>
+                    <a href="about.html" class="nav_element"><li>About Us</li></a>
+
+                    <form action='/login' method="post">
+                        <!--<li id="login_elem">Username</li>-->
+                        <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                        <!--<li id-"login_elem">Password</li>-->
+                        <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                        <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+                    </form>
+                </ul>
+            </nav>
+        </header>
+        <div id="martian_landscape">
+            <center>
+                <img src="../media/Front_banner_mars.png" alt="Surface">
+                <h1>Introduction</h1>
+            </center>
+            <p>Welcome to our Mars Survival and Exploration Wiki. We believe in the wisdom of large groups of people, and so, this Wiki is designed to whet your creative juices and contribute your ideas on how human beings can survive and thrive on the Red Planet.</p>		
+            <p>For the purposes of this proposal the MEA is a private organization founded with the intent of guiding humans through a smooth colonization of Mars. The purpose of the MEA is to disperse knowledge to individuals and groups interested in immigrating to the Red Planet. To serve that purpose the organization provides curated articles and provides users the ability to publish their own, as well as to comment and critique each other. This will foster a collaborative nature in our members, as well as the publishing of helpful information and pruning of bad information.</p>
+            <br />
+        </div>
+        <article>
+            <section id="welcome">
+            </section>
+        </article>
+        <article>
+        </article>
+        <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
         </main>
     </body>
 </html>
