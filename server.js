@@ -1,11 +1,14 @@
 //Required packages
 const express = require('express');
-const expressSession = require('express-session');
+const session = require('express-session');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const uuid = require('uuid');
+const FileStore = require('session-file-store')(session);
+
 
 //Setting up Express
 const app = express();
@@ -15,6 +18,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.use(cookieParser);
 //app.use(expressSession({secret: "secret"}));
 const port = 3000;
+
+//Creating User Session
+app.use(session({
+    genid: (req) => {
+        console.log('Inside the session middleware')
+        console.log(req.sessionID)
+        return uuid() // use UUIDs for session IDs
+    },
+    store: new FileStore(),
+    secret: 'topsecret',
+    resave: false,
+    saveUninitialized: true
+}));
 
 //User Registration
 app.post("/register", (req, res) => {
@@ -35,7 +51,7 @@ app.post("/register", (req, res) => {
                 if(err) {
                     console.error(err.message);
                 }
-                console.log('A row has been inserted at ${this.id}');
+                console.log(`A row has been inserted at ${this.id}`);
             });
             db.close();
         });
@@ -79,7 +95,11 @@ app.post("/login", (req,res) => {
 
 //Serving Index page
 app.get("/", (req,res) => {
-    res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    const uniqueId = uuid();
+    console.log('Inside the homepage callback function')
+    console.log(req.sessionID)
+    res.send('Hit home page.');
+    /*res.sendFile(path.join(__dirname + "/public/html/index.html"));*/
 });
 
 app.get("/index.html", (req,res) => {
