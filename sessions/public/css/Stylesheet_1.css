@@ -1,0 +1,121 @@
+.cf: after {
+content: " ";
+display: table;
+}
+
+.cf: after {
+clear: both;
+}
+
+.cf {
+*zoom: 1;
+
+}
+
+.menu,
+.submenu {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+.menu {
+margin: 50px auto;
+width: 800px;
+width: fit-content;
+}
+
+.menu > li {
+background: black;
+float: left;
+position: relative;
+transform: skewX(25deg);
+border: 14px;
+}
+.menu a {
+display: block;
+color: white;
+text-transform: uppercase;
+text-decoration: none;
+font-family: Arial, Helvetica;
+font-size: 14px;
+}
+.menu li:hover {
+background: orange;
+}
+.menu > li > a {
+transform: skewX(-25deg);
+padding: 1em 2em;
+}
+.submenu {
+position: absolute;
+width: 200px;
+left: 50%;
+margin-left: -100px;
+transform: skewX(-25deg);
+transform-origin: left top;
+}
+.submenu li {
+background-color: #34495e;
+position: relative;
+overflow: hidden;
+}
+.submenu li{
+background-color: #34495e;
+position: relative;
+overflow: hidden;
+}
+.submenu > li > a {
+padding: 1em 2em;
+}
+.submenu > li::after {
+content: ' ';
+position: absolute;
+top: -125%;
+height: 100%;
+width: 100%;
+box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+}
+.submenu > li:nth-child(odd) {
+transform: skewX(10deg) translateX(0);
+}
+
+.submenu > li:nth-child(even) > a {
+transform: skewX(-10deg);
+}
+
+.submenu > li:nth-child(even)::after {
+right: -50%;
+transform: skewX(10deg) rotate(3deg);
+}
+
+.submenu > li:nth-child(even){
+transform: skewX(-10deg) translateX(0);
+}
+.submenu > li:nth-child(even) > a {
+transform: skewX(10deg);
+}
+
+.submenu > li:nth-child(even)::after {
+right: -50%;
+transform: skewX(-10deg) rotate(3deg);
+}
+.submenu,
+.submenu li {
+opacity: 0;
+visibility: hidden;
+}
+.submenu li {
+transition: .2s ease-out transform;
+}
+.menu > li:hover .submenu,
+.menu > li:hover .submenu  li {
+opacity: 1;
+visibility: visible;
+}
+.menu > li:hover .submenu li:nth-child(even) {
+transform: skewX(15deg) translateX(15px);
+}
+.menu > li:hover .submenu li:nth-child(odd) {
+transform: skewX(-15deg) translateX(-15px);
+}

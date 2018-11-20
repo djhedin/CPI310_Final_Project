@@ -1,0 +1,350 @@
+/*Universal Styling*/
+html, body {
+    margin: 0;
+    padding: 0;
+    clear: both;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Russo One', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-indent: 2%;
+}
+
+main {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+}
+
+/*Header Styling*/
+header {
+    background-color: #fff;
+    margin:0;
+    padding:0;
+    display: inline;
+    font-family: 'Russo One', sans-serif;
+}
+
+header img {
+    float: left;
+    width: 21%;
+    height: 21%;
+}
+
+/*Navigation Bar Styling*/
+
+.cf: after {
+content: " ";
+display: table;
+}
+
+.cf: after {
+clear: both;
+}
+
+.cf {
+*zoom: 1;
+
+}
+
+.menu,
+.submenu {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+.menu {
+margin: auto;
+width: 800px;
+width: fit-content;
+display: inline;
+}
+
+.menu > li {
+background: black;
+float: left;
+position: relative;
+transform: skewX(25deg);
+border: 14px;
+}
+.menu a {
+display: block;
+color: white;
+text-transform: uppercase;
+text-decoration: none;
+font-family: Arial, Helvetica;
+font-size: 14px;
+}
+.menu li:hover {
+background: orange;
+}
+.menu > li > a {
+transform: skewX(-25deg);
+padding: 1em 2em;
+}
+.submenu {
+position: absolute;
+width: 200px;
+left: 50%;
+margin-left: -100px;
+transform: skewX(-25deg);
+transform-origin: left top;
+}
+.submenu li {
+background-color: #34495e;
+position: relative;
+overflow: hidden;
+}
+.submenu li{
+background-color: #34495e;
+position: relative;
+overflow: hidden;
+}
+.submenu > li > a {
+padding: 1em 2em;
+}
+.submenu > li::after {
+content: ' ';
+position: absolute;
+top: -125%;
+height: 100%;
+width: 100%;
+box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+}
+.submenu > li:nth-child(odd) {
+transform: skewX(10deg) translateX(0);
+}
+
+.submenu > li:nth-child(even) > a {
+transform: skewX(-10deg);
+}
+
+.submenu > li:nth-child(even)::after {
+right: -50%;
+transform: skewX(10deg) rotate(3deg);
+}
+
+.submenu > li:nth-child(even){
+transform: skewX(-10deg) translateX(0);
+}
+.submenu > li:nth-child(even) > a {
+transform: skewX(10deg);
+}
+
+.submenu > li:nth-child(even)::after {
+right: -50%;
+transform: skewX(-10deg) rotate(3deg);
+}
+.submenu,
+.submenu li {
+opacity: 0;
+visibility: hidden;
+}
+.submenu li {
+transition: .2s ease-out transform;
+}
+.menu > li:hover .submenu,
+.menu > li:hover .submenu  li {
+opacity: 1;
+visibility: visible;
+}
+.menu > li:hover .submenu li:nth-child(even) {
+transform: skewX(15deg) translateX(15px);
+}
+.menu > li:hover .submenu li:nth-child(odd) {
+transform: skewX(-15deg) translateX(-15px);
+}
+
+
+#login_elem {
+    font-size: 12px;
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    padding-right: 0px;
+    margin-right: 0px;
+    padding-left: 5px;
+    margin-left: 0px;
+    display: block;
+}
+
+
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+    background-color: #333;
+    color: white;
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+    padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: #FF5500;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #FF5500;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}
+
+/*Article Styling*/
+article {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+article section p {
+    text-indent: 2%;
+}
+/*Footer Styling*/
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+}
+
+#martian_landscape {
+    background-image: linear-gradient(white, #663300 ,#FF9933);
+    width:100%;
+    height: 100%;
+    margin-bottom: 0px;
+}
+#martian_landscape img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#martian_landscape a {
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #262626;
+	margin: 0;
+	padding: 0;
+	font-family: verdana;
+	}
+	.design{
+	    position: absolute;
+		top: 110%;
+		left: 50%;
+		transform: translate(-50%,-50%)
+	
+}
+.design ul {
+	margin: 0;
+	padding:0;
+	display:flex;
+}
+
+.design ul li {
+	list-style: none;
+	color: #fff;
+	font-size: 10em;
+	font-weight: bold;
+	letter-spacing: 10px;
+	filter: blur(1px)
+}
+
+.design ul:hover li{
+	animation: animate 2s linear infinite;
+	
+}
+@keyframes animate{
+	
+	0%{
+		transform: rotate(0deg) translateY(0px);
+		opacity: 1;
+		filter: blur(1px);
+	  }
+		
+   100%{
+		transform: rotate(45deg) translateY(-200px);
+		opacity: 1;
+		filter: blur(20px);
+		
+		
+	   }
+	
+	
+}
+.design ul li:nth-child(1){
+	animation-delay: 0s;
+
+}
+.design ul li:nth-child(2){
+	animation-delay: 0.4s;
+
+}
+
+.design ul li:nth-child(3){
+	animation-delay: 0.8s;
+
+}
+
+.design ul li:nth-child(4){
+	animation-delay: 1.2s;
+
+}
+.design ul li:nth-child(5){
+	animation-delay: 1.6s;
+
+}
+.design ul li{
+    color:white;
+}
+
