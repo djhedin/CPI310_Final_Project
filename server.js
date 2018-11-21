@@ -8,6 +8,12 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 const FileStore = require('session-file-store')(session);
+let db = new sqlite3.Database('./data/userbase.db', sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('Connected to the database with READWRITE permissions...');
+});
 
 //Setting up Express
 const app = express();
@@ -15,62 +21,41 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
-//app.use(expressSession({secret: "secret"}));
 const port = 3000;
-
-//Creating User Session
-//app.use(session({
-//    genid: (req) => {
-//        console.log('Inside the session middleware')
-//        console.log(req.sessionID)
-//        return uuid() // use UUIDs for session IDs
-//    },
-//    store: new FileStore(),
-//    secret: 'topsecret',
-//    resave: false,
-//    saveUninitialized: true
-//}));
 
 //User Registration
 app.post("/register", (req, res) => {
+    console.log("Registration request");
     const username = req.body.username;
     const password = req.body.password;
-    let db = new sqlite3.Database('./data/userbase.db', sqlite3.OPEN_READWRITE, (err) => {
-        if (err) {
-            console.error(err.message);
-        }
-        console.log('Connected to the userbase');
-    });
+
     db.serialize(() => {
+        console.log("Serializing database");
         bcrypt.hash(password, 10, (err, hash) => { //Using Bcrypt to hash the user's password
             if(err) {
                 console.error(err.message);
             }
-            db.run(`INSERT INTO users(name,password_hash) VALUES(?,?)`, [username, hash], function(err){
+            db.run(`INSERT INTO users(name,password_hash) VALUES(?,?)`, [username, hash], (err, userRow) =>{
+                console.log("Running INSERT query");
                 if(err) {
                     console.error(err.message);
                 }
-                console.log(`A row has been inserted at ${row.id}`);
+                console.log(`Row inserted at ${userRow.userID}`);
             });
-//            db.close();
         });
+        console.log("Ending serialization");
     });
-    console.log(username);
-    console.log(password);
     res.sendfile(path.join(__dirname + "/public/html/success_page.html"));
 });
+
 //User Login
 app.post("/login", (req,res) => {
+    console.log("Login request");
     const username = req.body.username;
     const password = req.body.password;
-    let db = new sqlite3.Database('./data/userbase.db', sqlite3.OPEN_READWRITE, (err) => {
-        if (err) {
-            console.error(err.message);
-        }
-        console.log('Connected to the userbase');
-    });
 
     db.serialize(() => {
+        console.log("Serializing database");
         let sql = `SELECT password_hash FROM users WHERE name = ?`;
 
         db.each(sql, [username], (err, row) => {
@@ -80,83 +65,137 @@ app.post("/login", (req,res) => {
             bcrypt.compare(password, row.password_hash, (err, result) => {
                 console.log("Passwords Match: " + result);
                 if(result) {
-                    db.get(`SELECT id FROM users WHERE name = ?`, [username], (err, row) => {
+                    db.get(`SELECT userID FROM users WHERE name = ?`, [username], (err, userRow) => {
                         if (err) {
                             console.error(err.message);
                         }
                         sessionToken = uuid();
                         res.cookie('sessionToken', sessionToken);
-                        console.log("Before writing to DB");
-                        db.run(`INSERT INTO sessions(userID, sessionToken) VALUES(?,?)`, [row.id, sessionToken], (err2, row2) => {
-                            if(err2) {
-                                console.error(err2.message);
+                        const date = new Date();
+                        const timestamp = date.getTime();
+                        db.run(`INSERT INTO sessions(userID, sessionToken, timestamp, expired) VALUES(?,?,?,?)`, [userRow.userID, sessionToken, timestamp, false], (sessionErr, sessionRow) => {
+                            if(sessionErr) {
+                                console.error(sessionErr.message);
                             }
-                            console.log(`A row has been inserted at ${row.id}`);
+                            //                            console.log(`A row has been inserted at ${sessionRow.sessionID}`);
+                            console.log(`A row has been inserted in sessions`);
                         });
                         console.log("After writing to DB")
                     });
-                    res.sendFile(path.join(__dirname + "/public/html/success_page.html"));
+                    res.sendFile(path.join(__dirname + "/public/html/index.html"));
                 } else {
                     res.sendFile(path.join(__dirname + "/public/html/rejection_page.html")); 
                 }
             });
         });
-//        db.close();
+        console.log("Ending serialization")
     });
 });
 
 app.post("/postThread", (req,res) => {
-    console.log("Opening DB...");
-    let db = new sqlite3.Database('./data/userbase.db', sqlite3.OPEN_READWRITE, (err) => {
-        if (err) {
-            console.error(err.message);
-        }
-        console.log('Connected to the userbase');
-    });
     db.serialize(() => {
-        console.log("seializing db");
+        //        const data = {data:null};
+        //        db.all(`SELECT * FROM users`, [], (err, rows) => {
+        //            if(err) {
+        //                console.error(err.message);
+        //            }
+        //            res.send(rows);
+        //        });
+                db.each(`SELECT count(*) FROM posts WHERE parentThread=1`, [], (err, result) => {
+                    if(err){
+                        console.error(err.message);
+                    }
+                    res.send(result);
+                    console.log(JSON.parse(result));
+                });
+    });
+    //    console.log("Thread creation request");
+    //    var threadID = -1;
+    //    db.serialize(() => {
+    //        console.log("Serializing database");
+    //        const sessionToken = req.cookies.sessionToken;
+    //        console.log(sessionToken);
+    //        db.get(`SELECT userID FROM sessions WHERE sessionToken = ?`, [sessionToken], (err, row) => {
+    //            db.get(`SELECT * FROM users WHERE userID = ?`, [row.userID], (err, usersRow) => {
+    //                db.run(`INSERT INTO threads(user,subject,content) VALUES(?,?,?)`, [usersRow.name, req.body.subject, req.body.content], (err) => {
+    //                    if(err) {
+    //                        console.error(err.message);
+    //                    }
+    //                    console.log(`A row has been inserted into threads`);
+    //                    db.get(`SELECT * FROM threads WHERE subject = ?`, [req.body.subject], (err, threadRow) => {
+    //                        if(err) {
+    //                            console.error(err.message);
+    //                        }
+    //                        threadID = threadRow.threadID;
+    //                        console.log("Thread ID: " + threadID);
+    //                        db.run(`INSERT INTO posts(user,subject,content,parentThread,orderInThread) VALUES(?,?,?,?,1)`, [usersRow.name, req.body.subject, req.body.content, threadID], (err) => {
+    //                            if(err) {
+    //                                console.error(err.message);
+    //                            } 
+    //                        });
+    //                    });
+    //                });
+    //            });
+    //        });
+    //        console.log("Ending serialization")
+    //    });
+    //    res.sendfile(path.join(__dirname + "/public/html/success_page.html"));
+});
+
+app.post("/createPost", (req,res) => {
+    console.log("Post creation request");
+    var postCount;
+    db.serialize(() => {
+        console.log("Serializing database");
         const sessionToken = req.cookies.sessionToken;
         console.log(sessionToken);
         db.get(`SELECT userID FROM sessions WHERE sessionToken = ?`, [sessionToken], (err, row) => {
-            db.get(`SELECT * FROM users WHERE id = ?`, [row.userID], (err, newRow) => {
-                db.run(`INSERT INTO threads(user,subject,content) VALUES(?,?,?)`, [newRow.name, req.body.subject, req.body.content], function(err){
-                    if(err) {
+            db.get(`SELECT * FROM users WHERE userID = ?`, [row.userID], (usersErr, usersRow) => {
+                if(usersErr) {
+                    console.error(usersErr.message);
+                }
+                db.each(`SELECT count(*) FROM posts WHERE parentThread=1`, [], (err, result) => {
+                    if(err){
                         console.error(err.message);
                     }
-                    console.log(`A row has been inserted into threads`);
+                    //                    res.send(result);
+                    db.run(`INSERT INTO posts(user,subject,content,parentThread) VALUES(?,?,?,?)`, [usersRow.name, req.body.subject, req.body.content, result], (postsErr) => {
+                        if(postsErr) {
+                            console.error(postsErr.message);
+                            res.sendFile(path.join(__dirname + "/public/html/rejection_page.html"));
+                        } else {
+                            console.log("Post inserted into posts");
+                            res.sendFile(path.join(__dirname + "/public/html/success_page.html"));
+                        }
+                    });
                 });
             });
         });
-//        db.close();
+        console.log("Ending serialization")
     });
-    res.sendfile(path.join(__dirname + "/public/html/success_page.html"));
 });
 
 //Serving Index page
 app.get("/", (req,res) => {
+    console.log("Index request");
     const uniqueId = uuid();
-    console.log('Inside the homepage callback function')
-    console.log(req.sessionID)
-    //    res.send('Hit home page.');
     res.sendFile(path.join(__dirname + "/public/html/index.html"));
 });
-app.get("/forums.html", (req,res) => {
-    res.sendFile(path.join(__dirname + "/public/html/forums.html"));
-    var markup = "";
-    let db = new sqlite3.Database('./data/userbase.db', sqlite3.OPEN_READONLY, (err) => {
-        if (err) {
-            console.error(err.message);
-        }
-        console.log('Connected to the userbase');
-    });
 
+app.get("/forums.html", (req,res) => {
+    res.sendFile(path.join(__dirname + "/public/html/forum.html"));
+    var markup = "";
+});
+
+app.get("/displayForums", (req,res) => {
     db.serialize(() => {
-        db.each(`SELECT * FROM threads(subject,content)`,[], (err, rows) => {
+        console.log("Serializing database");
+        db.each(`SELECT * FROM threads WHERE user = ?`,['topo'], (err, row) => {
             if(err) {
                 console.error(err.message);
             }
+            console.log(JSON.stringify(rows));
         });
-//        db.close();
     });
 });
 
@@ -164,24 +203,29 @@ app.get("/forums.html", (req,res) => {
 app.get("/index.html", (req,res) => {
     res.sendFile(path.join(__dirname + "/public/html/index.html"));
 });
+
 app.get("/about.html", (req,res) => {
     res.sendFile(path.join(__dirname + "/public/html/about.html"));
 });
+
 app.get("/plan.html", (req,res) => {
     res.sendFile(path.join(__dirname + "/public/html/plan.html"));
 });
+
 app.get("/project.html", (req,res) => {
     res.sendFile(path.join(__dirname + "/public/html/project.html"));
 });
+
 app.get("/specifications.html", (req,res) => {
     res.sendFile(path.join(__dirname + "/public/html/specifications.html"));
 });
-//Serving Registration page
-app.get("/registration.html", (req,res) => {
-    res.sendFile(path.join(__dirname + "/public/html/registration.html"));
-});
+
 app.get("/login.html", (req,res) => {
     res.sendFile(path.join(__dirname + "/public/html/login.html"));
+});
+
+app.get("/posts.html", (req,res) => {
+    res.sendFile(path.join(__dirname + "/public/html/posts.html"));
 });
 
 //Listening on port 3000 for traffic

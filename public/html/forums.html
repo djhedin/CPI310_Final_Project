@@ -1,11 +1,140 @@
+<!DOCTYPE html>
+<!--forums.html-->
 <html>
+    <head>
+
+        <title>Forums</title>
+        <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+        <link rel = "stylesheet" type = "text/css" media = " screen"  href = "css.css" />
+
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet"></head>
     <body>
-        <form action='/postThread' method="post">
-            Subject
-            <input type="text" name="subject"><br>
-            Content
-            <textarea name="content">Type content here...</textarea><br>
-            <input type="submit" value="Submit">
-        </form>
+        <main>
+            <header>
+                <img src="../media/MEA_logo3.png">
+                <ul class="menu cf">
+                    <li><a href= "index.html">home</a>
+                        <ul class = "submenu">
+                        </ul>
+                    </li>
+
+                    <li><a href= "">Ethics</a>
+                        <ul class = "submenu">
+                            <li><a href= "Advocates.html">Advocates</li>
+                            <li><a href= "Naysayers.html">Naysayers</li>
+                            <li><a href= "Centrists.html">Centrists</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "five_dangers.html">Dangers</a>
+                        <ul class = "submenu">
+                            <li><a href= "Dust.html">1.Dust</li>
+                            <li><a href= "Freezing.html">2.Freezing Temperatures</li>
+                            <li><a href= "Atmosphere.html">3.Atmosphere</li>
+                            <li><a href= "Pressure.html">4.Pressure</li>
+                            <li><a href= "Radiation.html">5.Radiation</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "">specifications</a>
+                        <ul class = "submenu">
+                            <li><a href= "">SubMenu Item</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "">gallery</a>
+                        <ul class = "submenu">
+                            <li><a href= "">Image gallery</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "about.html"> about us</a>
+                        <ul class = "submenu">
+                            <li><a href= "">Submenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form action='/login' method="post">
+                    <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                    <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                    <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+                </form>
+            </header>
+
+            <canvas id = "canvas"></canvas>
+            <script src = "app.js"></script>
+
+            <div class ="design">
+                <ul>
+                    <li>I</li>
+                    <li>N</li>
+                    <li>T</li>
+                    <li>R</li>
+                    <li>O</li>
+                </ul>
+            </div>
+            <div id="martian_landscape">
+                <center>
+                    <img src="../media/Front_banner_mars.png" alt="Surface">
+                </center>
+                <style>
+                    #canvas {
+                        background-color: #fefefe;
+                        -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                        -moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                        box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                    }
+                </style>
+
+                <style>
+                    body {
+
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .box
+                    {
+                        float: right;
+                        position: absolute;
+                        top: 50%
+                            left: 50%
+                            transform: translate(-50%, -50%);
+                        width: calc(1536px/ 6);
+
+                        height: 256px;
+                        background: url(AAA.png);
+                        animation: animate 1s steps(6) infinite;
+
+                    }
+                    @keyframes animate
+                    {
+                        from
+                        {
+                            background-position:0;
+                        }
+                        to
+                        {
+                            background-position:1536px;
+                        }
+                    }
+                </style>
+
+                <form action="/action_page.php" style="margin-left: 50px;">
+                    Subject<br><input type="text" name="subject"><br>
+                    Content<br><textarea name="content" rows=10 cols=100></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
+
+                <p style = "color: white; font-size: 30px; text-shadow: 2px 2px #000000;">&emsp;For countless decades scientists, astrophysicists, and dreamers have peered into the heavens at Sol's rusty red marble, inspired by the might of the god of war himself, or of a new home exotically unlike our own.The Romans saw the duality between Terra, known to us as Earth, and the striking Mars, the god of war.Their intuition formed the basis for the modern Martian obsession.<br>&emsp;These astrophiles fervently debate not only the possibility of terraforming Mars – changing the surface and atmosphere of Mars to suit Terran life, including humans – but the ethics of doing so. The Mars Exploration Agency aims to create a dialog where proponents and opponents of these ideas can grow themselves and others along our quest to inhabit the stars.
+                </p>
+            </div>
+        </main>
+        <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
     </body>
+    <!--    <div class="box"></div>-->
 </html>
