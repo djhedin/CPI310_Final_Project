@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--index.html-->
+<html>
+    <head>
+
+        <title>Profile</title>
+        <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+        <link rel = "stylesheet" type = "text/css" media = " screen"  href = "css.css" />
+
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet"></head>
+    <body>
+        <main>
+            <header>
+                <img src="../media/MEA_logo2.png">
+                <ul class="menu cf">
+                    <li><a href= "index.html">home</a>
+                        <ul class = "submenu">
+                        </ul>
+                    </li>
+
+                    <li><a href= "">Ethics</a>
+                        <ul class = "submenu">
+                            <li><a href= "Advocates.html">Advocates</li>
+                            <li><a href= "Naysayers.html">Naysayers</li>
+                            <li><a href= "Centrists.html">Centrists</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "five_dangers.html">Dangers</a>
+                        <ul class = "submenu">
+                            <li><a href= "Dust.html">1.Dust</li>
+                            <li><a href= "Freezing.html">2.Freezing Temperatures</li>
+                            <li><a href= "Atmosphere.html">3.Atmosphere</li>
+                            <li><a href= "Pressure.html">4.Pressure</li>
+                            <li><a href= "Radiation.html">5.Radiation</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "">specifications</a>
+                        <ul class = "submenu">
+                            <li><a href= "">SubMenu Item</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "">gallery</a>
+                        <ul class = "submenu">
+                            <li><a href= "">Image gallery</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "about.html"> about us</a>
+                        <ul class = "submenu">
+                            <li><a href= "">Submenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form action='/login' method="post">
+                    <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                    <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                    <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+                </form>
+            </header>
+
+            <canvas id = "canvas"></canvas>
+            <script src = "app.js"></script>
+
+            
+            <div id="martian_landscape">
+            <center>
+                <img src="../media/surface.jpg" alt="Surface">
+                <div class="container">
+                    <div class="row">
+                        <div class="column">
+                            <div class="card">
+                                <img src="../media/face_randy.jpg" alt="John" style="width:20%">
+                                <div class="container">
+                                    <h2>Randy Rodriguez</h2>
+                                    <p class="title">Designer</p>
+                                    <p>Randy Rodriguez is an Informatics major at ASU. He switched from Computer Systems Engineering after 2 years. He plans to work in logistics after graduating.</p>
+                                    <p>RandyRodriguez@asu.edu</p>
+                                    <p><button class="button">Contact</button></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <center><h3>Contact Us</h3></center>
+
+            <center><p>Please feel free to contact us with any questions, comments, or suggestions!</p></center>
+
+            <center>
+                <span id="contact-info">
+                    <b>Phone:</b> 626-512-5475
+                    <br />
+                    <b>Email:</b> Randy.Rodriguez@gmail.com
+                    <br />
+                    <p></p> Send us a message!
+                    <br />
+                    <br />
+                    <form method="Post" action="process.php">
+
+                        Name: <input type="text" />
+                        <p></p>
+                        Email: <input type="text" />
+                        <p></p>
+                        Message:
+                        <p></p>
+                        <textarea rows="10" cols="40" name="body"></textarea>
+                        <p></p>
+                        <input type="submit" value="Send" name="submit"/>
+                        <br />
+                        <br />
+                    </form>
+                </span>
+            </center>
+        </div>
+        <br><br>
+                        
+        </main>
+        <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
+    </body>
+<!--    <div class="box"></div>-->
+</html>
