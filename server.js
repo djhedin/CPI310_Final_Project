@@ -17,8 +17,8 @@ let db = new sqlite3.Database('./data/userbase.db', sqlite3.OPEN_READWRITE, (err
 
 //Setting up Express
 const app = express();
-app.use(express.static('public'));
-// app.use(express.static('views'));
+// app.use(express.static('public'));
+app.use(express.static('views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -183,8 +183,8 @@ app.post("/createPost", (req, res) => {
 app.get("/", (req, res) => {
     console.log("Index request");
     const uniqueId = uuid();
-    res.sendFile(path.join(__dirname + "/public/html/index.html"));
-    // res.render('index', {});
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('index', {});
 });
 
 app.get("/forums.html", (req, res) => {
@@ -205,6 +205,27 @@ app.get("/displayForums", async (req, res) => {
             console.log("Sending file");
             // console.log(forumDB);
             res.render('forums', { rows });
+        });
+    });
+});
+
+app.get("/displayPosts", async (req,res) => {
+    const threadID = req.param('id');
+    console.log(req.params);
+    console.log(threadID);
+    db.serialize(() => {
+        console.log("Serializing database");
+        db.all(`SELECT * FROM posts WHERE parentThread=?`, [threadID], (err, rows) => {
+            console.log("Selecting from db");
+            if (err) {
+                console.error(err.message);
+            }
+            // forumDB.push(rows);
+
+            console.log("Sending file");
+            console.log(rows);
+            // console.log(forumDB);
+            res.render('posts', { rows });
         });
     });
 });

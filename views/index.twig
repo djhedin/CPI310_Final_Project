@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333333;
+            }
+            li {
+                float: left;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 16px;
+                text-decoration: none;
+            }
+            li a:hover {
+                background-color: #111111;
+            }
+            #canvas {
+                background-color: #fefefe;
+                -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                -moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            }
+            .box {
+                float: right;
+                position: absolute;
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%);
+                width: calc(1536px/ 6);
+                height: 256px;
+                background: url(AAA.png);
+                animation: animate 1s steps(6) infinite;
+
+            }
+            @keyframes animate {
+                from {
+                    background-position:0;
+                }
+                to {
+                    background-position:1536px;
+                }
+            }
+        </style>
+    </head>
+    <header>
+        <img src="./media/MEA_logo3.png" id="logo">
+        <ul>
+            <li>
+                <form action='/login' method="POST">
+                    <input type="text" name="username" placeholder="Username" size="10">
+                    <input type="text" name="password" placeholder="Password" size="10">
+                    <input type="submit" value="Login" size="10">
+                </form>
+            </li>
+            <li>
+                <form action='/registrationPage' method="GET">
+                    <input type="submit" value="Register" size="10">
+                </form>
+            </li>
+        </ul>
+    </header>
+
+{% block javascripts %}
+    <canvas id = "canvas"></canvas>
+    <script src = "./javascripts/app.js"></script>
+{% endblock %}
+    {# <div class ="design">
+        <ul>
+            <li>I</li>
+            <li>N</li>
+            <li>T</li>
+            <li>R</li>
+            <li>O</li>
+        </ul>
+    </div> #}
+    <div id="martian_landscape">
+        <center>
+            <img src="./media/Front_banner_mars.png" alt="Surface">
+        </center>
+        <p style = "color: white; font-size: 30px; text-shadow: 2px 2px #000000;">&emsp;For countless decades scientists, astrophysicists, and dreamers have peered into the heavens at Sol's rusty red marble, inspired by the might of the god of war himself, or of a new home exotically unlike our own.The Romans saw the duality between Terra, known to us as Earth, and the striking Mars, the god of war.Their intuition formed the basis for the modern Martian obsession.<br>&emsp;These astrophiles fervently debate not only the possibility of terraforming Mars – changing the surface and atmosphere of Mars to suit Terran life, including humans – but the ethics of doing so. The Mars Exploration Agency aims to create a dialog where proponents and opponents of these ideas can grow themselves and others along our quest to walk among the stars.</p>
+    </div>
+    {# <div class="box"></div> #}
+    <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
+</htmL

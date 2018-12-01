@@ -1,0 +1,19 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% block body %}
+            <div id='posts'></div>
+            {% for row in rows %}
+                <div style="border:1px solid black;">
+                    <h1 style="margin-top: 0px; margin-bottom: 0px;">{{row.subject}}</h1>
+                    <h2 style="margin-top: 0px; margin-bottom: 0px;">Posted by {{row.user}}</h2>
+                    {% for paragraph in row.content | split('\n') %}
+                        <p>{{paragraph}}</p>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+        {% endblock %}
+    <body>
+</html>

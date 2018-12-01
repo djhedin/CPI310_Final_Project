@@ -5,26 +5,12 @@
     <body>
         {% block body %}
             <div id='posts'></div>
-        {% endblock %}
-        {% block javascripts %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script>
-                {# console.log("JavaScript works!"); #}
-
-                {% for row in rows %}
-                    {# <h1 onclick="redirect()" style="margin-top: 0px; margin-bottom: 0px;">{{row.subject}}</h1>
-                    <h2 onclick="redirect()" style="margin-top: 0px; margin-bottom: 0px;">Posted by {{row.user}}</h2>
-                    <p>{{row.content}}</p> #}
-                    var markup = "";
-                    markup += `<a href=""><h1 style="margin-top: 0px; margin-bottom: 0px;">{{row.subject}}</h1>`;
-                    fucntion redirect(id, threadID) {
-                    $(document).ready(function(){
-                            console.log("Script working properly");
-                            $(`#${id}`).attr("href", `/displayPosts?threadid=${threadID}`);
-                        });
-                    }
-                {% endfor %}
-            </script>
+            {% for row in rows %}
+                <div style="border:1px solid black;">
+                    <a href="/displayPosts?id={{row.threadID}}"><h1 style="margin-top: 0px; margin-bottom: 0px;">{{row.subject}}</h1>
+                    <h2 style="margin-top: 0px; margin-bottom: 0px;">Posted by {{row.user}}</h2></a>
+                </div>
+            {% endfor %}
         {% endblock %}
     <body>
 </html>
