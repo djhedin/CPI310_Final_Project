@@ -193,6 +193,7 @@ app.get("/forums.html", (req, res) => {
 });
 
 app.get("/displayForums", async (req, res) => {
+    console.log("Display Forums request");
     db.serialize(() => {
         console.log("Serializing database");
         db.all(`SELECT * FROM threads`, [], (err, rows) => {
@@ -210,6 +211,7 @@ app.get("/displayForums", async (req, res) => {
 });
 
 app.get("/displayPosts", async (req,res) => {
+    console.log("Display Posts request");
     const threadID = req.param('id');
     console.log(req.params);
     console.log(threadID);
@@ -246,32 +248,108 @@ app.get("/displayThread", (req, res) => {
 });
 
 
-app.get("/index.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/html/index.html"));
+// app.get("/index.html", (req, res) => {
+//     res.sendFile(path.join(__dirname + "/public/html/index.html"));
+// });
+
+app.get("/about", (req, res) => {
+    console.log("About request");
+    // res.sendFile(path.join(__dirname + "/public/html/about.html"));
+    res.render('about', {});
 });
 
-app.get("/about.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/html/about.html"));
+// app.get("/plan", (req, res) => {
+//     res.sendFile(path.join(__dirname + "/public/html/plan.html"));
+// });
+
+// app.get("/project.html", (req, res) => {
+//     res.sendFile(path.join(__dirname + "/public/html/project.html"));
+// });
+
+app.get("/specifications", (req, res) => {
+    // res.sendFile(path.join(__dirname + "/public/html/specifications.html"));
+    console.log("Specifications request");
+    res.render('specifications', {});
 });
 
-app.get("/plan.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/html/plan.html"));
+// app.get("/login.html", (req, res) => {
+//     res.sendFile(path.join(__dirname + "/public/html/login.html"));
+// });
+
+// app.get("/posts.html", (req, res) => {
+//     res.sendFile(path.join(__dirname + "/public/html/posts.html"));
+// });
+
+//Serving Advocates page
+app.get("/advocates", (req, res) => {
+    console.log("Advocates request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('advocates', {});
 });
 
-app.get("/project.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/html/project.html"));
+//Serving Atmosphere page
+app.get("/atmosphere", (req, res) => {
+    console.log("Atmosphere request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('atmosphere', {});
 });
 
-app.get("/specifications.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/html/specifications.html"));
+//Serving Centrists page
+app.get("/centrists", (req, res) => {
+    console.log("Centrists request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('centrists', {});
 });
 
-app.get("/login.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/html/login.html"));
+//Serving Dust page
+app.get("/dust", (req, res) => {
+    console.log("Dust request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('dust', {});
 });
 
-app.get("/posts.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/html/posts.html"));
+//Serving Five Dangers page
+app.get("/five_dangers", (req, res) => {
+    console.log("Five Dangers request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('five_dangers', {});
+});
+
+//Serving Freezing page
+app.get("/freezing", (req, res) => {
+    console.log("Freezing request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('freezing', {});
+});
+
+//Serving Naysayers page
+app.get("/naysayers", (req, res) => {
+    console.log("Naysayers request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('naysayers', {});
+});
+
+//Serving Pressure page
+app.get("/pressure", (req, res) => {
+    console.log("Pressure request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('pressure', {});
+});
+
+//Serving Radiation page
+app.get("/radiation", (req, res) => {
+    console.log("Radiation request");
+    const uniqueId = uuid();
+    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
+    res.render('radiation', {});
 });
 
 //Listening on port 3000 for traffic
