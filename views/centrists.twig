@@ -1,3 +1,4 @@
+<!--index.html-->
 <html>
     <head>
 	
@@ -9,16 +10,85 @@
     <body>
         <main>
         <header>
-            <img src="../media/MEA_logo3.png">
-        </header>
+                <img src="./media/MEA_logo3.png">
+                <ul class="menu cf">
+                    <li><a href= "/index">home</a>
+                        <ul class = "submenu">
+                        </ul>
+                    </li>
+
+                    <li><a href= "">Ethics</a>
+                        <ul class = "submenu">
+                            <li><a href= "/advocates">Advocates</li>
+                            <li><a href= "/naysayers">Naysayers</li>
+                            <li><a href= "/centrists">Centrists</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "/five_dangers">Dangers</a>
+                        <ul class = "submenu">
+                            <li><a href= "/dust">1.Dust</li>
+                            <li><a href= "/freezing">2.Freezing Temperatures</li>
+                            <li><a href= "/atmosphere">3.Atmosphere</li>
+                            <li><a href= "/pressure">4.Pressure</li>
+                            <li><a href= "/radiation">5.Radiation</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "">specifications</a>
+                        <ul class = "submenu">
+                            <li><a href= "">SubMenu Item</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "">gallery</a>
+                        <ul class = "submenu">
+                            <li><a href= "">Image gallery</li>
+                        </ul>
+                    </li>
+
+                    <li><a href= "/about"> about us</a>
+                        <ul class = "submenu">
+                            <li><a href= "">Submenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                            <li><a href= "">SubMenu Item</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form action='/login' method="post">
+                    <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                    <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                    <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+                </form>
+            </header>
         
 		
 		<canvas id = "canvas"></canvas>
-		<script src = "app.js"></script>
+		 <script src = "./javascripts/app.js"></script>
+		 
+		 <div class ="design">
+  <ul>
+  
+  <li>C</li>
+  <li>E</li>
+  <li>N</li>
+  <li>T</li>
+  <li>R</li>
+  <li>I</li>
+  <li>S</li>
+  <li>T</li>
+  <li>S</li>
+
+  </ul>
+
+	</div>
 		<div id="martian_landscape">
+
             <center>
                 <img src="./media/center_final.png" alt="Surface">
-			</center>
+				</center>
 				
 			
 <style>
@@ -54,6 +124,7 @@
         <article>
         </article>
         <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
+        </main>
 	
     </body>
 </html>

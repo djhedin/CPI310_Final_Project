@@ -1,8 +1,15 @@
 <html>
     <head>
-
     </head>
     <body>
+    {# <form action="/postThread" style="margin-left: 50px;" method="POST">
+        Subject<br><input type="text" name="subject"><br>
+        Content<br><textarea name="content" rows=10 cols=100></textarea><br>
+        <input type="submit" value="Submit">
+    </form> #}
+    {# <form action"/postNewThread" method="GET">
+        <input type="submit" value="Submit">
+    </form> #}
         {% block body %}
             <div id='posts'></div>
             {% for row in rows %}
@@ -11,6 +18,11 @@
                     <h2 style="margin-top: 0px; margin-bottom: 0px;">Posted by {{row.user}}</h2></a>
                 </div>
             {% endfor %}
+                <form action="/postThread" style="margin-left: 50px;" method="POST">
+                    Subject<br><input type="text" name="subject"><br>
+                    Content<br><textarea name="content" rows=10 cols=100></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
         {% endblock %}
     <body>
 </html>

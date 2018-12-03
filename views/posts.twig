@@ -5,7 +5,9 @@
     <body>
         {% block body %}
             <div id='posts'></div>
+            {% set id = "" %}
             {% for row in rows %}
+                {% set id = row.parentThread %}
                 <div style="border:1px solid black;">
                     <h1 style="margin-top: 0px; margin-bottom: 0px;">{{row.subject}}</h1>
                     <h2 style="margin-top: 0px; margin-bottom: 0px;">Posted by {{row.user}}</h2>
@@ -14,6 +16,12 @@
                     {% endfor %}
                 </div>
                 {% endfor %}
+                <form action="/createPost" style="margin-left: 50px;" method="POST">
+                    New Post<br><input type="text" name="subject"><br>
+                    <input type="hidden" name="parentThread" value="{{id}}" />
+                    Content<br><textarea name="content" rows=10 cols=100></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
         {% endblock %}
     <body>
 </html>

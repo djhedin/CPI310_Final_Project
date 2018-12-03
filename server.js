@@ -97,21 +97,6 @@ app.post("/login", (req, res) => {
 
 app.post("/postThread", (req, res) => {
     db.serialize(() => {
-        //        const data = {data:null};
-        //        db.all(`SELECT * FROM users`, [], (err, rows) => {
-        //            if(err) {
-        //                console.error(err.message);
-        //            }
-        //            res.send(rows);
-        //        });
-        //     db.each(`SELECT count(*) FROM posts WHERE parentThread=1`, [], (err, result) => {
-        //         if (err) {
-        //             console.error(err.message);
-        //         }
-        //         res.send(result);
-        //         console.log(JSON.parse(result));
-        //     });
-        // });
         console.log("Thread creation request");
         var threadID = -1;
         db.serialize(() => {
@@ -142,11 +127,13 @@ app.post("/postThread", (req, res) => {
             });
             console.log("Ending serialization")
         });
-        res.sendfile(path.join(__dirname + "/public/html/success_page.html"));
+        // res.sendfile(path.join(__dirname + "/public/html/success_page.html"));
+        res.redirect("/displayForums");
     });
 });
 
 app.post("/createPost", (req, res) => {
+    var parentThread = req.body.parentThread;
     console.log("Post creation request");
     var postCount;
     db.serialize(() => {
@@ -158,19 +145,18 @@ app.post("/createPost", (req, res) => {
                 if (usersErr) {
                     console.error(usersErr.message);
                 }
-                db.each(`SELECT count(*) FROM posts WHERE parentThread=1`, [], (err, result) => {
+                db.each(`SELECT count(*) FROM posts WHERE parentThread=?`, [parentThread], (err, result) => {
                     if (err) {
                         console.error(err.message);
                     }
                     //                    res.send(result);
-                    db.run(`INSERT INTO posts(user,subject,content,parentThread) VALUES(?,?,?,?)`, [usersRow.name, req.body.subject, req.body.content, result], (postsErr) => {
+                    db.run(`INSERT INTO posts(user,subject,content,parentThread) VALUES(?,?,?,?)`, [usersRow.name, req.body.subject, req.body.content, parentThread], (postsErr) => {
                         if (postsErr) {
                             console.error(postsErr.message);
-                            res.sendFile(path.join(__dirname + "/public/html/rejection_page.html"));
                         } else {
                             console.log("Post inserted into posts");
-                            res.sendFile(path.join(__dirname + "/public/html/success_page.html"));
                         }
+                        res.redirect(`/displayPosts?id=${parentThread}`);
                     });
                 });
             });
@@ -182,16 +168,19 @@ app.post("/createPost", (req, res) => {
 //Serving Index page
 app.get("/", (req, res) => {
     console.log("Index request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('index', {});
 });
-
-app.get("/forums.html", (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/html/forum.html"));
-    var markup = "";
+app.get("/index", (req, res) => {
+    console.log("Index request");
+    res.redirect("/");
 });
 
+// app.get("/forums.html", (req, res) => {
+//     res.sendFile(path.join(__dirname + "/public/html/forum.html"));
+//     var markup = "";
+// });
+
+//Dispaly current threads
 app.get("/displayForums", async (req, res) => {
     console.log("Display Forums request");
     db.serialize(() => {
@@ -201,15 +190,13 @@ app.get("/displayForums", async (req, res) => {
             if (err) {
                 console.error(err.message);
             }
-            // forumDB.push(rows);
-
             console.log("Sending file");
-            // console.log(forumDB);
             res.render('forums', { rows });
         });
     });
 });
 
+//Displaying current posts for a given thread
 app.get("/displayPosts", async (req,res) => {
     console.log("Display Posts request");
     const threadID = req.param('id');
@@ -232,29 +219,32 @@ app.get("/displayPosts", async (req,res) => {
     });
 });
 
-app.get("/displayThread", (req, res) => {
-    const threadID = req.body.threadID;
-    db.serialize(() => {
-        console.log("Serializing database");
-        db.all(`SELECT * FROM posts WHERE parentThread=?`, [threadID], (err, rows) => {
-            console.log("Selecting from db");
-            if (err) {
-                console.error(err.message);
-            }
-            console.log("Sending file");
-            res.render('posts', { rows });
-        });
-    });
-});
+// app.get("/displayThread", (req, res) => {
+//     const threadID = req.body.threadID;
+//     db.serialize(() => {
+//         console.log("Serializing database");
+//         db.all(`SELECT * FROM posts WHERE parentThread=?`, [threadID], (err, rows) => {
+//             console.log("Selecting from db");
+//             if (err) {
+//                 console.error(err.message);
+//             }
+//             console.log("Sending file");
+//             res.render('forums', { rows });
+//         });
+//     });
+// });
 
+// app.get("/postNewThread", (req, res) => {
+//     res.render('newThread', {});
+// });
 
 // app.get("/index.html", (req, res) => {
 //     res.sendFile(path.join(__dirname + "/public/html/index.html"));
 // });
 
+//Serving about page
 app.get("/about", (req, res) => {
     console.log("About request");
-    // res.sendFile(path.join(__dirname + "/public/html/about.html"));
     res.render('about', {});
 });
 
@@ -267,88 +257,65 @@ app.get("/about", (req, res) => {
 // });
 
 app.get("/specifications", (req, res) => {
-    // res.sendFile(path.join(__dirname + "/public/html/specifications.html"));
     console.log("Specifications request");
     res.render('specifications', {});
 });
 
-// app.get("/login.html", (req, res) => {
-//     res.sendFile(path.join(__dirname + "/public/html/login.html"));
-// });
-
-// app.get("/posts.html", (req, res) => {
-//     res.sendFile(path.join(__dirname + "/public/html/posts.html"));
-// });
+app.get("/login.html", (req, res) => {
+    res.sendFile(path.join(__dirname + "/public/html/login.html"));
+});
 
 //Serving Advocates page
 app.get("/advocates", (req, res) => {
     console.log("Advocates request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('advocates', {});
 });
 
 //Serving Atmosphere page
 app.get("/atmosphere", (req, res) => {
     console.log("Atmosphere request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('atmosphere', {});
 });
 
 //Serving Centrists page
 app.get("/centrists", (req, res) => {
     console.log("Centrists request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('centrists', {});
 });
 
 //Serving Dust page
 app.get("/dust", (req, res) => {
     console.log("Dust request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('dust', {});
 });
 
 //Serving Five Dangers page
 app.get("/five_dangers", (req, res) => {
     console.log("Five Dangers request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('five_dangers', {});
 });
 
 //Serving Freezing page
 app.get("/freezing", (req, res) => {
     console.log("Freezing request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('freezing', {});
 });
 
 //Serving Naysayers page
 app.get("/naysayers", (req, res) => {
     console.log("Naysayers request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('naysayers', {});
 });
 
 //Serving Pressure page
 app.get("/pressure", (req, res) => {
     console.log("Pressure request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('pressure', {});
 });
 
 //Serving Radiation page
 app.get("/radiation", (req, res) => {
     console.log("Radiation request");
-    const uniqueId = uuid();
-    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
     res.render('radiation', {});
 });
 
