@@ -39,7 +39,7 @@ header {
 header img {
     float: left;
     width: 21%;
-    height: 21%;
+    height: auto;
 }
 
 /*Navigation Bar Styling*/
@@ -256,13 +256,14 @@ footer {
 
 #martian_landscape {
     background-image: linear-gradient(white, #ADD8E6, #FF5500);
+    /* background-image: linear-gradient(#FF5500, #ADD8E6, white); */
     width:100%;
-    height: 100%;
+    height: 200%;
     margin-bottom: 0px;
 }
 #martian_landscape img {
     width: 100%;
-    height: 100%;
+    height: auto;
     margin: 0;
     margin-right: 0px;
     margin-left: 0px;

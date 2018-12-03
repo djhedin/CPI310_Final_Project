@@ -149,8 +149,8 @@ app.post("/createPost", (req, res) => {
                     if (err) {
                         console.error(err.message);
                     }
-                    //                    res.send(result);
-                    db.run(`INSERT INTO posts(user,subject,content,parentThread) VALUES(?,?,?,?)`, [usersRow.name, req.body.subject, req.body.content, parentThread], (postsErr) => {
+                    console.log(result);
+                    db.run(`INSERT INTO posts(user,subject,content,parentThread, orderInThread) VALUES(?,?,?,?,?)`, [usersRow.name, req.body.subject, req.body.content, parentThread, result['count(*)'] + 1], (postsErr) => {
                         if (postsErr) {
                             console.error(postsErr.message);
                         } else {
@@ -191,7 +191,8 @@ app.get("/displayForums", async (req, res) => {
                 console.error(err.message);
             }
             console.log("Sending file");
-            res.render('forums', { rows });
+            // res.render('forums', { rows });
+            res.render('wip', { rows });            
         });
     });
 });
@@ -234,27 +235,11 @@ app.get("/displayPosts", async (req,res) => {
 //     });
 // });
 
-// app.get("/postNewThread", (req, res) => {
-//     res.render('newThread', {});
-// });
-
-// app.get("/index.html", (req, res) => {
-//     res.sendFile(path.join(__dirname + "/public/html/index.html"));
-// });
-
 //Serving about page
 app.get("/about", (req, res) => {
     console.log("About request");
     res.render('about', {});
 });
-
-// app.get("/plan", (req, res) => {
-//     res.sendFile(path.join(__dirname + "/public/html/plan.html"));
-// });
-
-// app.get("/project.html", (req, res) => {
-//     res.sendFile(path.join(__dirname + "/public/html/project.html"));
-// });
 
 app.get("/specifications", (req, res) => {
     console.log("Specifications request");
