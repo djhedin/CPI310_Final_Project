@@ -312,6 +312,22 @@ app.get("/registration", (req, res) => {
     res.render("registration", {});
 });
 
+app.get("/aboutDevyn", (req, res) => {
+    res.render("devyn", {});
+});
+
+app.get("/aboutKyle", (req, res) => {
+    res.render("kyle", {});
+});
+
+app.get("/aboutCarlos", (req, res) => {
+    res.render("carlos", {});
+});
+
+app.get("/aboutRandy", (req, res) => {
+    res.render("randy", {});
+});
+
 //Listening on port 3000 for traffic
 app.listen(port, (err) => {
     if (err) {
