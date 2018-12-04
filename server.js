@@ -215,7 +215,8 @@ app.get("/displayPosts", async (req,res) => {
             console.log("Sending file");
             console.log(rows);
             // console.log(forumDB);
-            res.render('posts', { rows });
+            // res.render('posts', { rows });
+            res.render('wip2', { rows });
         });
     });
 });

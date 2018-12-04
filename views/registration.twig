@@ -1,0 +1,107 @@
+<!--index.html-->
+<html>
+    <head>
+
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" media=" screen" href="css.css"/>
+
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet"></head>
+    <body>
+        <main>
+            <header>
+                <img src="./media/MEA_logo3.png">
+                <ul class="menu cf">
+                    <li>
+                        <a href="/index">home</a>
+                        <ul class="submenu"></ul>
+                    </li>
+
+                    <li>
+                        <a href="">Ethics</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/advocates">Advocates</a>
+                            </li>
+                            <li>
+                                <a href="/naysayers">Naysayers</a>
+                            </li>
+                            <li>
+                                <a href="/centrists">Centrists</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/five_dangers">Dangers</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/dust">1.Dust</a>
+                            </li>
+                            <li>
+                                <a href="/freezing">2.Freezing Temperatures</a>
+                            </li>
+                            <li>
+                                <a href="/atmosphere">3.Atmosphere</a>
+                            </li>
+                            <li>
+                                <a href="/pressure">4.Pressure</a>
+                            </li>
+                            <li>
+                                <a href="/radiation">5.Radiation</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/specifications">specifications</a>
+                        <ul class="submenu"></ul>
+                    </li>
+
+                    <li>
+                        <a href="/displayForums">forums</a>
+                        <ul class="submenu"></ul>
+                    </li>
+
+                    <li>
+                        <a href="">about us</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/aboutDevyn">Devyn Hedin</a>
+                            </li>
+                            <li>
+                                <a href="/aboutCarlos">Carlos Paz</a>
+                            </li>
+                            <li>
+                                <a href="/aboutRandy">Randy Rodriguez</a>
+                            </li>
+                            <li>
+                                <a href="/aboutKyle">Kyle Houlihan</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form action='/login' method="post">
+                    <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                    <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                    <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+                </form>
+            </header>
+
+            <canvas id="canvas"></canvas>
+            <script src="./javascripts/app.js"></script>
+            <h1 style="color: white;">Registration</h1>
+            <form action='/register' method="post">
+                <h1 style="color: white;">Username</h1>
+                <input type="text" name="username"><br>
+                <h1 style="color: white;">Password</h1>
+                <input type="text" name="password"><br>
+                <input type="submit" value="Submit">
+            </form>
+        </main>
+        <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
+    </body>
+    <!-- <div class="box"></div>-->
+</html>

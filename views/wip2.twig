@@ -56,6 +56,12 @@
                     </li>
                 </ul>
             </header>
+            
+            <form action='/login' method="post">
+                <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+            </form>
 
             <canvas id="canvas"></canvas>
             <script src="./javascripts/app.js"></script>
@@ -99,20 +105,35 @@
                     }
                 </style>
                 {% block body %}
+                    {% set id = "" %}
                     {% for row in rows %}
-                        <div style="border:1px solid black;">
-                            <a href="/displayPosts?id={{row.threadID}}">
-                                <h1 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; padding-left: 20px;">{{row.subject}}</h1>
-                                <h2 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; padding-left: 20px;">Posted by
+                        {% set id = row.parentThread %}
+                        {% if row.orderInThread == 1 %}
+                            <div style="border:1px solid black;">
+                                <h1 style="margin-top: 0px; margin-bottom: 0px; color: FloralWhite; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">{{row.subject}}</h1>
+                                <h2 style="margin-top: 0px; margin-bottom: 0px; color: FloralWhite; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">Posted by
                                     {{row.user}}</h2>
-                            </a>
-                        </div>
+                                {% for paragraph in row.content | split('\n') %}
+                                    <p>{{paragraph}}</p>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div style="border:1px solid black;">
+                                <h1 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">{{row.subject}}</h1>
+                                <h2 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">Posted by
+                                    {{row.user}}</h2>
+                                {% for paragraph in row.content | split('\n') %}
+                                    <p>{{paragraph}}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     {% endfor %}
-                    <form action="/postThread" style="margin-left: 50px;" method="POST">
-                        <span style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none;">Subject</span><br><input type="text" name="subject"><br>
-                        <span style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none;">Content</span><br>
+                    <form action="/createPost" style="margin-left: 50px;" method="POST">
+                        <h3 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; text-shadow: 2px 2px #000000;">New Post</h3><br><input type="text" name="subject"><br>
+                        <input type="hidden" name="parentThread" value="{{id}}"/>
+                        <h3 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; text-shadow: 2px 2px #000000;">Content</h3><br>
                         <textarea name="content" rows="10" cols="100"></textarea><br>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" style="margin-bottom: 50px;">
                     </form>
                 {% endblock %}
             </div>
