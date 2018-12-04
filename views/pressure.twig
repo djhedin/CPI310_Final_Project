@@ -1,158 +1,170 @@
 <!--index.html-->
 <html>
     <head>
-	
-	        <title>Home</title>
+
+        <title>Home</title>
         <link rel="stylesheet" type="text/css" href="./css/Stylesheet_Pressure.css">
-		<link rel = "stylesheet" type = "text/css" media = " screen"  href = "css.css" />
+        <link rel="stylesheet" type="text/css" media=" screen" href="css.css"/>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet"></head>
     <body>
         <main>
-        <header>
+            <header>
                 <img src="./media/MEA_logo3.png">
                 <ul class="menu cf">
-                    <li><a href= "/index">home</a>
-                        <ul class = "submenu">
+                    <li>
+                        <a href="/index">home</a>
+                        <ul class="submenu"></ul>
+                    </li>
+
+                    <li>
+                        <a href="">Ethics</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/advocates">Advocates</a>
+                            </li>
+                            <li>
+                                <a href="/naysayers">Naysayers</a>
+                            </li>
+                            <li>
+                                <a href="/centrists">Centrists</a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li><a href= "">Ethics</a>
-                        <ul class = "submenu">
-                            <li><a href= "/advocates">Advocates</li>
-                            <li><a href= "/naysayers">Naysayers</li>
-                            <li><a href= "/centrists">Centrists</li>
+                    <li>
+                        <a href="/five_dangers">Dangers</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/dust">1.Dust</a>
+                            </li>
+                            <li>
+                                <a href="/freezing">2.Freezing Temperatures</a>
+                            </li>
+                            <li>
+                                <a href="/atmosphere">3.Atmosphere</a>
+                            </li>
+                            <li>
+                                <a href="/pressure">4.Pressure</a>
+                            </li>
+                            <li>
+                                <a href="/radiation">5.Radiation</a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li><a href= "/five_dangers">Dangers</a>
-                        <ul class = "submenu">
-                            <li><a href= "/dust">1.Dust</li>
-                            <li><a href= "/freezing">2.Freezing Temperatures</li>
-                            <li><a href= "/atmosphere">3.Atmosphere</li>
-                            <li><a href= "/pressure">4.Pressure</li>
-                            <li><a href= "/radiation">5.Radiation</li>
-                        </ul>
+                    <li>
+                        <a href="/registration">Registration</a>
+                        <ul class="submenu"></ul>
                     </li>
 
-                    <li><a href= "">specifications</a>
-                        <ul class = "submenu">
-                            <li><a href= "">SubMenu Item</li>
-                        </ul>
+                    <li>
+                        <a href="/displayForums">forums</a>
+                        <ul class="submenu"></ul>
                     </li>
 
-                    <li><a href= "">gallery</a>
-                        <ul class = "submenu">
-                            <li><a href= "">Image gallery</li>
-                        </ul>
-                    </li>
-
-                    <li><a href= "/about"> about us</a>
-                        <ul class = "submenu">
-                            <li><a href= "">Submenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
+                    <li>
+                        <a href="">about us</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/aboutDevyn">Devyn Hedin</a>
+                            </li>
+                            <li>
+                                <a href="/aboutCarlos">Carlos Paz</a>
+                            </li>
+                            <li>
+                                <a href="/aboutRandy">Randy Rodriguez</a>
+                            </li>
+                            <li>
+                                <a href="/aboutKyle">Kyle Houlihan</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-
-                <form action='/login' method="post">
-                    <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
-                    <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
-                    <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
-                </form>
             </header>
-        
-		
-		<canvas id = "canvas"></canvas>
-		 <script src = "./javascripts/app.js"></script>
-		 
-		 <div class ="design">
-  <ul>
-  
-  <li>P</li>
-  <li>R</li>
-  <li>E</li>
-  <li>S</li>
-  <li>S</li>
-  <li>U</li>
-  <li>R</li>
-  <li>E</li>
+            <form action='/login' method="post">
+                <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+            </form>
+            <canvas id="canvas"></canvas>
+            <script src="./javascripts/app.js"></script>
 
-  
-  
-  
-  
-  
-  
+            <div class="design">
+                <ul>
 
-  </ul>
+                    <li>P</li>
+                    <li>R</li>
+                    <li>E</li>
+                    <li>S</li>
+                    <li>S</li>
+                    <li>U</li>
+                    <li>R</li>
+                    <li>E</li>
 
-	</div>
-		<div id="martian_landscape">
+                </ul>
 
-            <center>
-                <img src="./media/a_pressure.jpg" alt="Surface">
-				</center>
-				
-			
-<style>
-    #canvas {
-	    background-color: #fefefe;
+            </div>
+            <div id="martian_landscape">
 
-		-webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-		-moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-		 box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-		 
-		 }
-	  </style>
-	  
-            <a><a/><p><font color="yellow">Because Mars’s atmosphere is 100 times thinner than ours, their air pressure Is also low – as little as 1/1000th of that of Earth. For comparison, the pressure on Mt. Everest is 1/3rd that at sea level.  There is so little pressure on Mars that there is not enough to prevent water from exploding from below the surface and boiling away, nor enough to keep your body’s fluids from boiling as well.  Perhaps less damaging but still daunting would be that the water in your lungs, tears and saliva would evaporate immediately.</font></p>
-			
-			
-			
-			 <center>
-			<img src="./media/Pressure_2_Large.jpg" alt="Surface" style="width:1000px; height:680px;" border="15px">
-			</center>
-			
-			<center>
-			<p><font style = "color: yellow; font-size: 30px;">"Pic of explosions of water from beneath the surface"</font></p>
-			</center>
-			
-			
-			
-                  
-                <p><font color="yellow">Long-term survival would require thickening the atmosphere of Mars, increasing the pressure in order to keep the heat from escaping and water – including our bodily fluids – from boiling.  Margarita Marinova has suggested that we might be able to do this by using PFC’s (perflourocarbons) – essentially creating a greenhouse effect on Mars – exactly what we have done – to our detriment – on Earth.</font></p>
-                  
-            <p><font color="yellow">Other suggestions on increasing the atmospheric pressure on Mars have been to launch a satellite that would point a giant mirror on its polar ice caps, converting the CO2 to a gas.  Or using solar panels to convert the CO2 to carbon and oxygen.</font></p>
-			
-			
-			 <center>
-			<img src="./media/Panels_2_Large.jpg" alt="Surface" style="width:620px; height:800px;" border="15px">
-			</center>
-			
-			<center>
-			<p><font style = "color: yellow; font-size: 30px;">"Pic of solar panels and/or giant mirror on a satellite"</font></p>
-			</center>
-			
-			
-			
-			
-			
-          
-            <br />
-	  
-        </div>
-        <article>
-            <section id="welcome">
-            </section>
-        </article>
-        <article>
-        </article>
-        <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
-        </main>
-	
-    </body>
-		<script type= "text/javascript" src = "./javascript/app_pressure.js"></script>
-</html>
+                <center>
+                    <img src="./media/a_pressure.jpg" alt="Surface">
+                </center>
+
+                <style>
+                    #canvas {
+                        background-color: #fefefe;
+
+                        -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                        -moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                        box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+
+                    }
+                </style>
+
+                <a><a/>
+                    <p>
+                        <font color="yellow">Because Mars’s atmosphere is 100 times thinner than ours, their air pressure Is also low – as little as 1/1000th of that of Earth. For comparison, the pressure on Mt. Everest is 1/3rd that at sea level. There is so little pressure on Mars that there is not enough to prevent water from exploding from below the surface and boiling away, nor enough to keep your body’s fluids from boiling as well. Perhaps less damaging but still daunting would be that the water in your lungs, tears and saliva would evaporate immediately.</font>
+                    </p>
+
+                    <center>
+                        <img src="./media/Pressure_2_Large.jpg" alt="Surface" style="width:1000px; height:680px;" border="15px">
+                    </center>
+
+                    <center>
+                        <p>
+                            <font style="color: yellow; font-size: 30px;">"Pic of explosions of water from beneath the surface"</font>
+                        </p>
+                    </center>
+
+                    <p>
+                        <font color="yellow">Long-term survival would require thickening the atmosphere of Mars, increasing the pressure in order to keep the heat from escaping and water – including our bodily fluids – from boiling. Margarita Marinova has suggested that we might be able to do this by using PFC’s (perflourocarbons) – essentially creating a greenhouse effect on Mars – exactly what we have done – to our detriment – on Earth.</font>
+                    </p>
+
+                    <p>
+                        <font color="yellow">Other suggestions on increasing the atmospheric pressure on Mars have been to launch a satellite that would point a giant mirror on its polar ice caps, converting the CO2 to a gas. Or using solar panels to convert the CO2 to carbon and oxygen.</font>
+                    </p>
+
+                    <center>
+                        <img src="./media/Panels_2_Large.jpg" alt="Surface" style="width:620px; height:800px;" border="15px">
+                    </center>
+
+                    <center>
+                        <p>
+                            <font style="color: yellow; font-size: 30px;">"Pic of solar panels and/or giant mirror on a satellite"</font>
+                        </p>
+                    </center>
+
+                    <br/>
+
+                </div>
+                <article>
+                    <section id="welcome"></section>
+                </article>
+                <article></article>
+                <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
+            </main>
+
+        </body>
+        <script type="text/javascript" src="./javascript/app_pressure.js"></script>
+    </html>

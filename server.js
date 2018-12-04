@@ -43,12 +43,13 @@ app.post("/register", (req, res) => {
                 if (err) {
                     console.error(err.message);
                 }
-                console.log(`Row inserted at ${userRow.userID}`);
+                // console.log(`Row inserted at ${userRow.userID}`);
             });
         });
         console.log("Ending serialization");
     });
-    res.sendfile(path.join(__dirname + "/public/html/success_page.html"));
+    // res.sendfile(path.join(__dirname + "/public/html/success_page.html"));
+    res.redirect("/");
 });
 
 //User Login
@@ -74,6 +75,7 @@ app.post("/login", (req, res) => {
                         }
                         sessionToken = uuid();
                         res.cookie('sessionToken', sessionToken);
+                        res.render("index",{});
                         const date = new Date();
                         const timestamp = date.getTime();
                         db.run(`INSERT INTO sessions(userID, sessionToken, timestamp, expired) VALUES(?,?,?,?)`, [userRow.userID, sessionToken, timestamp, false], (sessionErr, sessionRow) => {
@@ -85,10 +87,11 @@ app.post("/login", (req, res) => {
                         });
                         console.log("After writing to DB")
                     });
-                    res.sendFile(path.join(__dirname + "/public/html/index.html"));
+                    // res.sendFile(path.join(__dirname + "/public/html/index.html"));
                 } else {
-                    res.sendFile(path.join(__dirname + "/public/html/rejection_page.html"));
+                    // res.sendFile(path.join(__dirname + "/public/html/rejection_page.html"));
                 }
+                // res.redirect("/");
             });
         });
         console.log("Ending serialization")
@@ -303,6 +306,10 @@ app.get("/pressure", (req, res) => {
 app.get("/radiation", (req, res) => {
     console.log("Radiation request");
     res.render('radiation', {});
+});
+
+app.get("/registration", (req, res) => {
+    res.render("registration", {});
 });
 
 //Listening on port 3000 for traffic

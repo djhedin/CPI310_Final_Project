@@ -1,125 +1,150 @@
 <!--index.html-->
 <html>
     <head>
-	
-	        <title>Home</title>
+
+        <title>Home</title>
         <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
-		<link rel = "stylesheet" type = "text/css" media = " screen"  href = "css.css" />
+        <link rel="stylesheet" type="text/css" media=" screen" href="css.css"/>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet"></head>
     <body>
         <main>
-        <header>
+            <header>
                 <img src="./media/MEA_logo3.png">
                 <ul class="menu cf">
-                    <li><a href= "/index">home</a>
-                        <ul class = "submenu">
+                    <li>
+                        <a href="/index">home</a>
+                        <ul class="submenu"></ul>
+                    </li>
+
+                    <li>
+                        <a href="">Ethics</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/advocates">Advocates</a>
+                            </li>
+                            <li>
+                                <a href="/naysayers">Naysayers</a>
+                            </li>
+                            <li>
+                                <a href="/centrists">Centrists</a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li><a href= "">Ethics</a>
-                        <ul class = "submenu">
-                            <li><a href= "/advocates">Advocates</li>
-                            <li><a href= "/naysayers">Naysayers</li>
-                            <li><a href= "/centrists">Centrists</li>
+                    <li>
+                        <a href="/five_dangers">Dangers</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/dust">1.Dust</a>
+                            </li>
+                            <li>
+                                <a href="/freezing">2.Freezing Temperatures</a>
+                            </li>
+                            <li>
+                                <a href="/atmosphere">3.Atmosphere</a>
+                            </li>
+                            <li>
+                                <a href="/pressure">4.Pressure</a>
+                            </li>
+                            <li>
+                                <a href="/radiation">5.Radiation</a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li><a href= "/five_dangers">Dangers</a>
-                        <ul class = "submenu">
-                            <li><a href= "/dust">1.Dust</li>
-                            <li><a href= "/freezing">2.Freezing Temperatures</li>
-                            <li><a href= "/atmosphere">3.Atmosphere</li>
-                            <li><a href= "/pressure">4.Pressure</li>
-                            <li><a href= "/radiation">5.Radiation</li>
-                        </ul>
+                    <li>
+                        <a href="/registration">Registration</a>
+                        <ul class="submenu"></ul>
                     </li>
 
-                    <li><a href= "">specifications</a>
-                        <ul class = "submenu">
-                            <li><a href= "">SubMenu Item</li>
-                        </ul>
+                    <li>
+                        <a href="/displayForums">forums</a>
+                        <ul class="submenu"></ul>
                     </li>
 
-                    <li><a href= "">gallery</a>
-                        <ul class = "submenu">
-                            <li><a href= "">Image gallery</li>
-                        </ul>
-                    </li>
-
-                    <li><a href= "/about"> about us</a>
-                        <ul class = "submenu">
-                            <li><a href= "">Submenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
+                    <li>
+                        <a href="">about us</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/aboutDevyn">Devyn Hedin</a>
+                            </li>
+                            <li>
+                                <a href="/aboutCarlos">Carlos Paz</a>
+                            </li>
+                            <li>
+                                <a href="/aboutRandy">Randy Rodriguez</a>
+                            </li>
+                            <li>
+                                <a href="/aboutKyle">Kyle Houlihan</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-
-                <form action='/login' method="post">
-                    <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
-                    <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
-                    <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
-                </form>
             </header>
-        
-		
-		<canvas id = "canvas"></canvas>
-		 <script src = "./javascripts/app.js"></script>
-		 
-		 <div class ="design">
-  <ul>
-  
-  <li>N</li>
-  <li>A</li>
-  <li>Y</li>
-  <li>S</li>
-  <li>A</li>
-  <li>Y</li>
-  <li>E</li>
-  <li>R</li>
-  <li>S</li>
+            <form action='/login' method="post">
+                <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+            </form>
+            <canvas id="canvas"></canvas>
+            <script src="./javascripts/app.js"></script>
 
-  </ul>
+            <div class="design">
+                <ul>
 
-	</div>
-		<div id="martian_landscape">
+                    <li>N</li>
+                    <li>A</li>
+                    <li>Y</li>
+                    <li>S</li>
+                    <li>A</li>
+                    <li>Y</li>
+                    <li>E</li>
+                    <li>R</li>
+                    <li>S</li>
 
-            <center>
-                <img src="./media/anti_2.png" alt="Surface">
-				</center>
-				
-			
-<style>
-    #canvas {
-	    background-color: #fefefe;
+                </ul>
 
-		-webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-		-moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-		 box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-		 
-		 }
-	  </style>
-	  
-              <a><a/><p><font color = "white">Many of those against terraforming Mars would consider themselves ecocentrists who support a nature-centered view rather than a human one, believing there is no natural division between human life and all other forms that justifies the idea that humans have more intrinsic value than non-human species.  Philosopher Richard Sylvan, a devoted ecocentrist and a believer in deep environmental ethics represents this view.</font></p>
-			  
-			  
-            <p><font color = "white">Those who do not believe that we should be terraforming Mars also argue that it is unethical to potentially introduce foreign pathogens, disturb indigenous lifeforms, or divert our eyes and resources from resolving the problems we have created here on Earth. They would argue that because we made a mess of planet Earth, we have no moral standing to escape our obligations and our folly and perhaps bring the same devastation to Mars while not solving our problems at home.</font></p>
-			
-            <p><font color = "white">Robert Sparrow, Australian philosopher, believes we should stop exploring the idea of terraforming Mars because it would not, according to Aristotle, be a virtuous act, but rather a vicious one marked by an inability to see the natural beauty of Mars. “Only someone insensitive to beauty would not recognize the destruction of the Martian landscape as a tragedy,” he states.  In addition, Sparrow believes that the human desire to terraform Mars is an example of hubris – the idea that we should remake Mars into what we believe it should be – a mini-Earth – in our image.</font></p>
+            </div>
+            <div id="martian_landscape">
 
-            <br />
-	  
-        </div>
-        <article>
-            <section id="welcome">
-            </section>
-        </article>
-        <article>
-        </article>
-        <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
-        </main>
-	
-    </body>
-</html>
+                <center>
+                    <img src="./media/anti_2.png" alt="Surface">
+                </center>
+
+                <style>
+                    #canvas {
+                        background-color: #fefefe;
+
+                        -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                        -moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                        box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+
+                    }
+                </style>
+
+                <a><a/>
+                    <p>
+                        <font color="white">Many of those against terraforming Mars would consider themselves ecocentrists who support a nature-centered view rather than a human one, believing there is no natural division between human life and all other forms that justifies the idea that humans have more intrinsic value than non-human species. Philosopher Richard Sylvan, a devoted ecocentrist and a believer in deep environmental ethics represents this view.</font>
+                    </p>
+
+                    <p>
+                        <font color="white">Those who do not believe that we should be terraforming Mars also argue that it is unethical to potentially introduce foreign pathogens, disturb indigenous lifeforms, or divert our eyes and resources from resolving the problems we have created here on Earth. They would argue that because we made a mess of planet Earth, we have no moral standing to escape our obligations and our folly and perhaps bring the same devastation to Mars while not solving our problems at home.</font>
+                    </p>
+
+                    <p>
+                        <font color="white">Robert Sparrow, Australian philosopher, believes we should stop exploring the idea of terraforming Mars because it would not, according to Aristotle, be a virtuous act, but rather a vicious one marked by an inability to see the natural beauty of Mars. “Only someone insensitive to beauty would not recognize the destruction of the Martian landscape as a tragedy,” he states. In addition, Sparrow believes that the human desire to terraform Mars is an example of hubris – the idea that we should remake Mars into what we believe it should be – a mini-Earth – in our image.</font>
+                    </p>
+
+                    <br/>
+
+                </div>
+                <article>
+                    <section id="welcome"></section>
+                </article>
+                <article></article>
+                <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
+            </main>
+
+        </body>
+    </html>

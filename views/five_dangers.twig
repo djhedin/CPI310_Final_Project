@@ -1,142 +1,150 @@
 <!--index.html-->
 <html>
     <head>
-	
-	        <title>Home</title>
+
+        <title>Home</title>
         <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
-		<link rel = "stylesheet" type = "text/css" media = " screen"  href = "css.css" />
-	
+        <link rel="stylesheet" type="text/css" media=" screen" href="css.css"/>
+
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet"></head>
     <body>
         <main>
-        <header>
+            <header>
                 <img src="./media/MEA_logo3.png">
                 <ul class="menu cf">
-                    <li><a href= "/index">home</a>
-                        <ul class = "submenu">
+                    <li>
+                        <a href="/index">home</a>
+                        <ul class="submenu"></ul>
+                    </li>
+
+                    <li>
+                        <a href="">Ethics</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/advocates">Advocates</a>
+                            </li>
+                            <li>
+                                <a href="/naysayers">Naysayers</a>
+                            </li>
+                            <li>
+                                <a href="/centrists">Centrists</a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li><a href= "">Ethics</a>
-                        <ul class = "submenu">
-                            <li><a href= "/advocates">Advocates</li>
-                            <li><a href= "/naysayers">Naysayers</li>
-                            <li><a href= "/centrists">Centrists</li>
+                    <li>
+                        <a href="/five_dangers">Dangers</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/dust">1.Dust</a>
+                            </li>
+                            <li>
+                                <a href="/freezing">2.Freezing Temperatures</a>
+                            </li>
+                            <li>
+                                <a href="/atmosphere">3.Atmosphere</a>
+                            </li>
+                            <li>
+                                <a href="/pressure">4.Pressure</a>
+                            </li>
+                            <li>
+                                <a href="/radiation">5.Radiation</a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li><a href= "/five_dangers">Dangers</a>
-                        <ul class = "submenu">
-                            <li><a href= "/dust">1.Dust</li>
-                            <li><a href= "/freezing">2.Freezing Temperatures</li>
-                            <li><a href= "/atmosphere">3.Atmosphere</li>
-                            <li><a href= "/pressure">4.Pressure</li>
-                            <li><a href= "/radiation">5.Radiation</li>
-                        </ul>
+                    <li>
+                        <a href="/registration">Registration</a>
+                        <ul class="submenu"></ul>
                     </li>
 
-                    <li><a href= "">specifications</a>
-                        <ul class = "submenu">
-                            <li><a href= "">SubMenu Item</li>
-                        </ul>
+                    <li>
+                        <a href="/displayForums">forums</a>
+                        <ul class="submenu"></ul>
                     </li>
 
-                    <li><a href= "">gallery</a>
-                        <ul class = "submenu">
-                            <li><a href= "">Image gallery</li>
-                        </ul>
-                    </li>
-
-                    <li><a href= "/about"> about us</a>
-                        <ul class = "submenu">
-                            <li><a href= "">Submenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
-                            <li><a href= "">SubMenu Item</li>
+                    <li>
+                        <a href="">about us</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/aboutDevyn">Devyn Hedin</a>
+                            </li>
+                            <li>
+                                <a href="/aboutCarlos">Carlos Paz</a>
+                            </li>
+                            <li>
+                                <a href="/aboutRandy">Randy Rodriguez</a>
+                            </li>
+                            <li>
+                                <a href="/aboutKyle">Kyle Houlihan</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-
-                <form action='/login' method="post">
-                    <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
-                    <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
-                    <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
-                </form>
             </header>
-        
-		
-		<canvas id = "canvas"></canvas>
-		 <script src = "./javascripts/app.js"></script>
-		 
-	</div>
-		<div id="martian_landscape">
+            <form action='/login' method="post">
+                <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+            </form>
+            <canvas id="canvas"></canvas>
+            <script src="./javascripts/app.js"></script>
+
+        </div>
+        <div id="martian_landscape">
 
             <center>
                 <img src="./media/Front_banner_mars.png" alt="Surface">
-				</center>
-				
-	 
-	 <style>
-	  body {
+            </center>
 
-margin: 0;
-padding: 0;
-}
-.box
-{
-   float: right;
-   position: absolute;
-   top: 50%
-   left: 50%
-   transform: translate(-50%, -50%);
-   width: calc(1536px/ 6);
+            <style>
+                body {
 
-   height: 256px;
-   background: url(AAA.png);
-   animation: animate 1s steps(6) infinite;
-   
-   }
-   @keyframes animate
-   {
-         from
-		 {
-		 background-position:0;
-		 }
-		 to
-		 {
-		 background-position:1536px;
-		 }
-	}
-	</style>
-	  
+                    margin: 0;
+                    padding: 0;
+                }
+                .box {
+                    float: right;
+                    position: absolute;
+                    top:50% left:50% transform: translate(-50%, -50%);
+                    width: calc(1536px/ 6);
 
-          
-            <br />
-			
-<p><font style = "color: white; font-size: 30px;">Can human beings survive the 5 deadly environmental hazards on Mars.</font></p>  
+                    height: 256px;
+                    background: url("AAA.png");
+                    animation: animate 1s steps(6) infinite;
 
+                }
+                @keyframes animate {
+                    from {
+                        background-position: 0;
+                    }
+                    to {
+                        background-position: 1536px;
+                    }
+                }
+            </style>
 
-<a></a><p><font color = "white">As far as we know, planet Earth, population roughly 7.5 billion, has from the beginning of time, been the origin of every member of humanity. But what if, one day, an asteroid collides with Earth and suddenly humanity ceases to exist? Or perhaps human fertility will outrun our resources.  Or, on the other hand, curious and creative humans may want to build on a new planet simply because it is there.  The possibilities are endless and there are many reasons why we human beings are interested in exploring the idea of becoming an interplanetary species. We are limited only by our imaginations – and our budget!  Although the cost would be staggering, and the effort getting there would be life threatening – it’s a chance many of the most adventurous of us are eager to tackle. 
-One likely candidate for exploration and colonization, one that might serve to “house” our expat population is our neighbor Mars. Although Mars is a s far as you can get from a tropical paradise it still shows potential for being inhabitable.   Before we can populate Mars however, we need to confront the different ways Mars can kill.   We must seek solutions in advance of building, test them, and know that these solutions will work.</font></a> 
-			
-			
-			
-			
-	
-	  
+            <br/>
+
+            <p>
+                <font style="color: white; font-size: 30px;">Can human beings survive the 5 deadly environmental hazards on Mars.</font>
+            </p>
+
+            <a></a>
+            <p>
+                <font color="white">As far as we know, planet Earth, population roughly 7.5 billion, has from the beginning of time, been the origin of every member of humanity. But what if, one day, an asteroid collides with Earth and suddenly humanity ceases to exist? Or perhaps human fertility will outrun our resources. Or, on the other hand, curious and creative humans may want to build on a new planet simply because it is there. The possibilities are endless and there are many reasons why we human beings are interested in exploring the idea of becoming an interplanetary species. We are limited only by our imaginations – and our budget! Although the cost would be staggering, and the effort getting there would be life threatening – it’s a chance many of the most adventurous of us are eager to tackle. One likely candidate for exploration and colonization, one that might serve to “house” our expat population is our neighbor Mars. Although Mars is a s far as you can get from a tropical paradise it still shows potential for being inhabitable. Before we can populate Mars however, we need to confront the different ways Mars can kill. We must seek solutions in advance of building, test them, and know that these solutions will work.</font>
+            </a>
+
         </div>
         <article>
-            <section id="welcome">
-            </section>
+            <section id="welcome"></section>
         </article>
-        <article>
-        </article>
+        <article></article>
         <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
-        </main>
-	
-    </body>
-	    <div class="box"></div>
+    </main>
 
-	   
+</body>
+<div class="box"></div>
+
 </html>

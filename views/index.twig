@@ -4,7 +4,7 @@
 
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
-        <link rel = "stylesheet" type = "text/css" media = " screen"  href = "css.css" />
+        <link rel="stylesheet" type="text/css" media=" screen" href="css.css"/>
 
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet"></head>
@@ -13,54 +13,85 @@
             <header>
                 <img src="./media/MEA_logo3.png">
                 <ul class="menu cf">
-                    <li><a href= "/index">home</a>
-                        <ul class = "submenu">
+                    <li>
+                        <a href="/index">home</a>
+                        <ul class="submenu"></ul>
+                    </li>
+
+                    <li>
+                        <a href="">Ethics</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/advocates">Advocates</a>
+                            </li>
+                            <li>
+                                <a href="/naysayers">Naysayers</a>
+                            </li>
+                            <li>
+                                <a href="/centrists">Centrists</a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li><a href= "">Ethics</a>
-                        <ul class = "submenu">
-                            <li><a href= "/advocates">Advocates</a></li>
-                            <li><a href= "/naysayers">Naysayers</a></li>
-                            <li><a href= "/centrists">Centrists</a></li>
+                    <li>
+                        <a href="/five_dangers">Dangers</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/dust">1.Dust</a>
+                            </li>
+                            <li>
+                                <a href="/freezing">2.Freezing Temperatures</a>
+                            </li>
+                            <li>
+                                <a href="/atmosphere">3.Atmosphere</a>
+                            </li>
+                            <li>
+                                <a href="/pressure">4.Pressure</a>
+                            </li>
+                            <li>
+                                <a href="/radiation">5.Radiation</a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li><a href= "/five_dangers">Dangers</a>
-                        <ul class = "submenu">
-                            <li><a href= "/dust">1.Dust</a></li>
-                            <li><a href= "/freezing">2.Freezing Temperatures</a></li>
-                            <li><a href= "/atmosphere">3.Atmosphere</a></li>
-                            <li><a href= "/pressure">4.Pressure</a></li>
-                            <li><a href= "/radiation">5.Radiation</a></li>
-                        </ul>
+                    <li>
+                        <a href="/registration">Registration</a>
+                        <ul class="submenu"></ul>
                     </li>
 
-                    <li><a href= "/specifications">specifications</a>
-                        <ul class = "submenu">
-                        </ul>
+                    <li>
+                        <a href="/displayForums">forums</a>
+                        <ul class="submenu"></ul>
                     </li>
 
-                    <li><a href= "/displayForums">forums</a>
-                        <ul class = "submenu">
-                        </ul>
-                    </li>
-
-                    <li><a href= "">about us</a>
-                        <ul class = "submenu">
-                            <li><a href= "/aboutDevyn">Devyn Hedin</a></li>
-                            <li><a href= "/aboutCarlos">Carlos Paz</a></li>
-                            <li><a href= "/aboutRandy">Randy Rodriguez</a></li>
-                            <li><a href= "/aboutKyle">Kyle Houlihan</a></li>
+                    <li>
+                        <a href="">about us</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="/aboutDevyn">Devyn Hedin</a>
+                            </li>
+                            <li>
+                                <a href="/aboutCarlos">Carlos Paz</a>
+                            </li>
+                            <li>
+                                <a href="/aboutRandy">Randy Rodriguez</a>
+                            </li>
+                            <li>
+                                <a href="/aboutKyle">Kyle Houlihan</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
             </header>
+            <form action='/login' method="post">
+                <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+                <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+                <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+            </form>
+            <canvas id="canvas"></canvas>
+            <script src="./javascripts/app.js"></script>
 
-            <canvas id = "canvas"></canvas>
-            <script src = "./javascripts/app.js"></script>
-
-            <div class ="design">
+            <div class="design">
                 <ul>
                     <li>I</li>
                     <li>N</li>
@@ -88,37 +119,31 @@
                         margin: 0;
                         padding: 0;
                     }
-                    .box
-                    {
+                    .box {
                         float: right;
                         position: absolute;
-                        top: 50%
-                            left: 50%
-                            transform: translate(-50%, -50%);
+                        top:50% left:50% transform: translate(-50%, -50%);
                         width: calc(1536px/ 6);
 
                         height: 256px;
-                        background: url(AAA.png);
+                        background: url("AAA.png");
                         animation: animate 1s steps(6) infinite;
 
                     }
-                    @keyframes animate
-                    {
-                        from
-                        {
-                            background-position:0;
+                    @keyframes animate {
+                        from {
+                            background-position: 0;
                         }
-                        to
-                        {
-                            background-position:1536px;
+                        to {
+                            background-position: 1536px;
                         }
                     }
                 </style>
-                <p style = "color: white; font-size: 30px; text-shadow: 2px 2px #000000;">&emsp;For countless decades scientists, astrophysicists, and dreamers have peered into the heavens at Sol's rusty red marble, inspired by the might of the god of war himself, or of a new home exotically unlike our own.The Romans saw the duality between Terra, known to us as Earth, and the striking Mars, the god of war.Their intuition formed the basis for the modern Martian obsession.<br>&emsp;These astrophiles fervently debate not only the possibility of terraforming Mars – changing the surface and atmosphere of Mars to suit Terran life, including humans – but the ethics of doing so. The Mars Exploration Agency aims to create a dialog where proponents and opponents of these ideas can grow themselves and others along our quest to inhabit the stars.
+                <p style="color: white; font-size: 30px; text-shadow: 2px 2px #000000;">&emsp;For countless decades scientists, astrophysicists, and dreamers have peered into the heavens at Sol's rusty red marble, inspired by the might of the god of war himself, or of a new home exotically unlike our own.The Romans saw the duality between Terra, known to us as Earth, and the striking Mars, the god of war.Their intuition formed the basis for the modern Martian obsession.<br>&emsp;These astrophiles fervently debate not only the possibility of terraforming Mars – changing the surface and atmosphere of Mars to suit Terran life, including humans – but the ethics of doing so. The Mars Exploration Agency aims to create a dialog where proponents and opponents of these ideas can grow themselves and others along our quest to inhabit the stars.
                 </p>
             </div>
         </main>
         <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
     </body>
-<!--    <div class="box"></div>-->
+    <!-- <div class="box"></div>-->
 </html>

@@ -10,133 +10,160 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto|Russo+One" rel="stylesheet"></head>
     <body>
         {# <main> #}
-            <header>
-                <img src="./media/MEA_logo3.png">
-                <ul class="menu cf">
-                    <li><a href= "/index">home</a>
-                        <ul class = "submenu">
-                        </ul>
-                    </li>
+        <header>
+            <img src="./media/MEA_logo3.png">
+            <ul class="menu cf">
+                <li>
+                    <a href="/index">home</a>
+                    <ul class="submenu"></ul>
+                </li>
 
-                    <li><a href= "">Ethics</a>
-                        <ul class = "submenu">
-                            <li><a href= "/advocates">Advocates</a></li>
-                            <li><a href= "/naysayers">Naysayers</a></li>
-                            <li><a href= "/centrists">Centrists</a></li>
-                        </ul>
-                    </li>
+                <li>
+                    <a href="">Ethics</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/advocates">Advocates</a>
+                        </li>
+                        <li>
+                            <a href="/naysayers">Naysayers</a>
+                        </li>
+                        <li>
+                            <a href="/centrists">Centrists</a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <li><a href= "/five_dangers">Dangers</a>
-                        <ul class = "submenu">
-                            <li><a href= "/dust">1.Dust</a></li>
-                            <li><a href= "/freezing">2.Freezing Temperatures</a></li>
-                            <li><a href= "/atmosphere">3.Atmosphere</a></li>
-                            <li><a href= "/pressure">4.Pressure</a></li>
-                            <li><a href= "/radiation">5.Radiation</a></li>
-                        </ul>
-                    </li>
+                <li>
+                    <a href="/five_dangers">Dangers</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/dust">1.Dust</a>
+                        </li>
+                        <li>
+                            <a href="/freezing">2.Freezing Temperatures</a>
+                        </li>
+                        <li>
+                            <a href="/atmosphere">3.Atmosphere</a>
+                        </li>
+                        <li>
+                            <a href="/pressure">4.Pressure</a>
+                        </li>
+                        <li>
+                            <a href="/radiation">5.Radiation</a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <li><a href= "/specifications">specifications</a>
-                        <ul class = "submenu">
-                        </ul>
-                    </li>
+                <li>
+                    <a href="/registration">Registration</a>
+                    <ul class="submenu"></ul>
+                </li>
 
-                    <li><a href= "/displayForums">forums</a>
-                        <ul class = "submenu">
-                        </ul>
-                    </li>
+                <li>
+                    <a href="/displayForums">forums</a>
+                    <ul class="submenu"></ul>
+                </li>
 
-                    <li><a href= "">about us</a>
-                        <ul class = "submenu">
-                            <li><a href= "/aboutDevyn">Devyn Hedin</a></li>
-                            <li><a href= "/aboutCarlos">Carlos Paz</a></li>
-                            <li><a href= "/aboutRandy">Randy Rodriguez</a></li>
-                            <li><a href= "/aboutKyle">Kyle Houlihan</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </header>
-            
-            <form action='/login' method="post">
-                <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
-                <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
-                <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
-            </form>
+                <li>
+                    <a href="">about us</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/aboutDevyn">Devyn Hedin</a>
+                        </li>
+                        <li>
+                            <a href="/aboutCarlos">Carlos Paz</a>
+                        </li>
+                        <li>
+                            <a href="/aboutRandy">Randy Rodriguez</a>
+                        </li>
+                        <li>
+                            <a href="/aboutKyle">Kyle Houlihan</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
 
-            <canvas id="canvas"></canvas>
-            <script src="./javascripts/app.js"></script>
-            <div id="martian_landscape">
-                <center>
-                    <img src="./media/Front_banner_mars.png" alt="Surface">
-                </center>
-                <style>
-                    #canvas {
-                        background-color: #fefefe;
-                        -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-                        -moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-                        box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+        <form action='/login' method="post">
+            <li id="login_elem"><input type="text" name="username" placeholder="Username" size="10"></li>
+            <li id="login_elem"><input type="text" name="password" placeholder="Password" size="10"></li>
+            <li id="login_elem"><input type="submit" value="Submit" size="10"></li>
+        </form>
+
+        <canvas id="canvas"></canvas>
+        <script src="./javascripts/app.js"></script>
+        <div id="martian_landscape">
+            <center>
+                <img src="./media/Front_banner_mars.png" alt="Surface">
+            </center>
+            <style>
+                #canvas {
+                    background-color: #fefefe;
+                    -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                    -moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                    box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                }
+            </style>
+
+            <style>
+                body {
+
+                    margin: 0;
+                    padding: 0;
+                }
+                .box {
+                    float: right;
+                    position: absolute;
+                    top:50% left:50% transform: translate(-50%, -50%);
+                    width: calc(1536px/ 6);
+
+                    height: 256px;
+                    background: url("AAA.png");
+                    animation: animate 1s steps(6) infinite;
+
+                }
+                @keyframes animate {
+                    from {
+                        background-position: 0;
                     }
-                </style>
-
-                <style>
-                    body {
-
-                        margin: 0;
-                        padding: 0;
+                    to {
+                        background-position: 1536px;
                     }
-                    .box {
-                        float: right;
-                        position: absolute;
-                        top:50% left:50% transform: translate(-50%, -50%);
-                        width: calc(1536px/ 6);
-
-                        height: 256px;
-                        background: url("AAA.png");
-                        animation: animate 1s steps(6) infinite;
-
-                    }
-                    @keyframes animate {
-                        from {
-                            background-position: 0;
-                        }
-                        to {
-                            background-position: 1536px;
-                        }
-                    }
-                </style>
-                {% block body %}
-                    {% set id = "" %}
-                    {% for row in rows %}
-                        {% set id = row.parentThread %}
-                        {% if row.orderInThread == 1 %}
-                            <div style="border:1px solid black;">
-                                <h1 style="margin-top: 0px; margin-bottom: 0px; color: FloralWhite; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">{{row.subject}}</h1>
-                                <h2 style="margin-top: 0px; margin-bottom: 0px; color: FloralWhite; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">Posted by
-                                    {{row.user}}</h2>
-                                {% for paragraph in row.content | split('\n') %}
-                                    <p>{{paragraph}}</p>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            <div style="border:1px solid black;">
-                                <h1 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">{{row.subject}}</h1>
-                                <h2 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">Posted by
-                                    {{row.user}}</h2>
-                                {% for paragraph in row.content | split('\n') %}
-                                    <p>{{paragraph}}</p>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                    <form action="/createPost" style="margin-left: 50px;" method="POST">
-                        <h3 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; text-shadow: 2px 2px #000000;">New Post</h3><br><input type="text" name="subject"><br>
-                        <input type="hidden" name="parentThread" value="{{id}}"/>
-                        <h3 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; text-shadow: 2px 2px #000000;">Content</h3><br>
-                        <textarea name="content" rows="10" cols="100"></textarea><br>
-                        <input type="submit" value="Submit" style="margin-bottom: 50px;">
-                    </form>
-                {% endblock %}
-            </div>
+                }
+            </style>
+            {% block body %}
+                {% set id = "" %}
+                {% for row in rows %}
+                    {% set id = row.parentThread %}
+                    {% if row.orderInThread == 1 %}
+                        <div style="border:1px solid black;">
+                            <h1 style="margin-top: 0px; margin-bottom: 0px; color: FloralWhite; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">{{row.subject}}</h1>
+                            <h2 style="margin-top: 0px; margin-bottom: 0px; color: FloralWhite; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">Posted by
+                                {{row.user}}</h2>
+                            {% for paragraph in row.content | split('\n') %}
+                                <p>{{paragraph}}</p>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div style="border:1px solid black;">
+                            <h1 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">{{row.subject}}</h1>
+                            <h2 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; padding-left: 20px; text-shadow: 2px 2px #000000;">Posted by
+                                {{row.user}}</h2>
+                            {% for paragraph in row.content | split('\n') %}
+                                <p>{{paragraph}}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <form action="/createPost" style="margin-left: 50px;" method="POST">
+                    <h3 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; text-shadow: 2px 2px #000000;">New Post</h3><br><input type="text" name="subject"><br>
+                    <input type="hidden" name="parentThread" value="{{id}}"/>
+                    <h3 style="margin-top: 0px; margin-bottom: 0px; color: white; text-decoration: none; text-shadow: 2px 2px #000000;">Content</h3><br>
+                    <textarea name="content" rows="10" cols="100"></textarea><br>
+                    <input type="submit" value="Submit" style="margin-bottom: 50px;">
+                </form>
+            {% endblock %}
+        </div>
         {# </main> #}
         <footer>&copy; 2018 Mars Exploration Agency, LLC</footer>
     </body>
